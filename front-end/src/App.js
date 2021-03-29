@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <NavigationBar />
-      
+
       <Route path="/">
         <Landing />
       </Route>
