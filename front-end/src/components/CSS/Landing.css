@@ -31,30 +31,31 @@ html {
   text-align: center;
   width: 60%;
   height: 60vh;
-  background: repeating-linear-gradient(
-    45deg,
-    #469438,
-    #469438 10px,
-    #57b846 10px,
-    #57b846 20px
-  );
+  background-color: #fff;
 }
 .bannertext {
-  margin-bottom: 30px;
+  margin-bottom: 200px;
   width: 50%;
+  padding: 20px;
+  border: 3px solid #57b846;
+  border-radius: 4px;
 }
 .imgcont {
-  width: 70%;
+  width: 200%;
   height: auto;
 }
-.imgcont img {
-  width: 50%;
-  height: auto;
+
+.logotop {
+  width: 500px;
+  margin-bottom: 0;
 }
+
 span {
-  width: 50%;
-  color: white;
-  font-size: 20px;
+
+  width: 70%;
+  color: #57b846;
+  font-size: 25px;
+
 }
 
 .middle {
@@ -87,6 +88,10 @@ span {
   margin-bottom: 20px;
 }
 .step1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
 
   width: 50%;
@@ -94,14 +99,22 @@ span {
   background-color: #469438;
 }
 .step2 {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
+  text-align: center;
   width: 50%;
   color: #fff;
 
   background-color: #469438;
 }
 .step3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
 
   width: 50%;
@@ -153,4 +166,8 @@ img {
   width: 150px;
   height: auto;
   margin-top: 70px;
+}
+.step3 img {
+  width: 200px;
+  margin-top: 0;
 }
