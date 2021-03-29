@@ -15,10 +15,11 @@ export default function Landing() {
             </div>
             <div className="bannertext">
               <span>
-                WaterMyPlants makes it easy to designate the amount of times you
+                WaterMyPlants helps you manage your time, so you can help your plants thrive!
+                {/* WaterMyPlants makes it easy to designate the amount of times you
                 water specific plants per day, so that you can better and more
                 effectively manage your time and ensure that your plants get
-                watered when they need to.
+                watered when they need to. */}
               </span>
             </div>
           </div>
@@ -42,8 +43,7 @@ export default function Landing() {
         <div className="works2">
           <div className="para2">
             <p>
-              Create your plants and designate their water frequencies to ensure
-              that you keep your plants healthy.
+              List your varieties of plants, when they need watering, and how much water to give them.
             </p>
           </div>
           <div className="step2">
@@ -62,9 +62,10 @@ export default function Landing() {
           </div>
           <div className="para3">
             <p>
-              Your plants get watered <br />
+              Receive alerts to remind you when each plant needs watering.
+              {/* Your plants get watered <br />
               when they need to, <br />
-              without even thinking about it.
+              without even thinking about it. */}
             </p>
           </div>
         </div>
