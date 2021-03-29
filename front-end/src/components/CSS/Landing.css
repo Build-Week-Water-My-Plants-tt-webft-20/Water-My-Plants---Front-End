@@ -1,0 +1,156 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+  font-family: "Ubuntu";
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  background-color: #343b3f;
+}
+.banner-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 60%;
+  height: 60vh;
+  background: repeating-linear-gradient(
+    45deg,
+    #469438,
+    #469438 10px,
+    #57b846 10px,
+    #57b846 20px
+  );
+}
+.bannertext {
+  margin-bottom: 30px;
+  width: 50%;
+}
+.imgcont {
+  width: 70%;
+  height: auto;
+}
+.imgcont img {
+  width: 50%;
+  height: auto;
+}
+span {
+  width: 50%;
+  color: black;
+  font-size: 25px;
+}
+
+.middle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.works1 {
+  display: flex;
+  width: 60%;
+  height: 40vh;
+  background-color: #57b846;
+  margin-bottom: 20px;
+}
+.works2 {
+  display: flex;
+  width: 60%;
+  height: 40vh;
+  background-color: #57b846;
+  margin-bottom: 20px;
+}
+.works3 {
+  display: flex;
+  width: 60%;
+  height: 40vh;
+  background-color: #57b846;
+  margin-bottom: 20px;
+}
+.step1 {
+  text-align: center;
+
+  width: 50%;
+  color: #fff;
+  background-color: #469438;
+}
+.step2 {
+  text-align: center;
+
+  width: 50%;
+  color: #fff;
+
+  background-color: #469438;
+}
+.step3 {
+  text-align: center;
+
+  width: 50%;
+  color: #fff;
+  background-color: #469438;
+}
+
+.para1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 50%;
+  height: 100%;
+  color: #fff;
+}
+.para2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 50%;
+  height: 100%;
+  color: #fff;
+}
+.para3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  width: 50%;
+  height: 100%;
+  color: #fff;
+}
+
+p {
+  text-align: center;
+  width: 90%;
+  height: 90%;
+  margin-top: 80px;
+  letter-spacing: 0.0375em;
+  line-height: 2;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+img {
+  width: 150px;
+  height: auto;
+  margin-top: 70px;
+}
