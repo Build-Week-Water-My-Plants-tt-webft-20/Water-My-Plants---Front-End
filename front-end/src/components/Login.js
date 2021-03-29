@@ -20,17 +20,16 @@ export default function Login(props) {
     e.preventDefault()
     axios.post('', credentials)
       .then(res => {
-        localStorage.setItem('token', res.data.payload)
+        localStorage.setItem('token', res.data)
       })
       .then(() => {
-        props.history.push('/private')
+        props.history.push('/')
       })
       .catch(err => console.log(err))
   }
 
   return (
-    <div className="login-content">
-      <h1>Login Page</h1>
+    <div >
       <div className="login-form">
         <form onSubmit={login}>
           <label>
