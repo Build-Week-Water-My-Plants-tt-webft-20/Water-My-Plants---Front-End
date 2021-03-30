@@ -106,7 +106,7 @@ button:hover {
 
 .login-container {
   width: 100%;
-  min-height: 100vh;
+  min-height: 90vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

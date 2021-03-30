@@ -1,15 +1,7 @@
 import React from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const NavigationBar = () => {
-
-    const { push } = useHistory();
-
-    //   signout button that pushes back to home page
-    const signOut = () => {
-        window.localStorage.removeItem("token");
-        push("/");
-    };
 
   return (
     <div className="header">
@@ -34,14 +26,6 @@ const NavigationBar = () => {
 
         <Link className="nav-link" to="/plant-form">
           Add Your Plant
-        </Link>
-
-        <Link className="nav-link" to="/about">
-          About Team
-        </Link>
-
-        <Link className="nav-link" to="/signout" onClick={signOut}>
-          Sign out
         </Link>
       </nav>
     </div>
