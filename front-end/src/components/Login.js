@@ -31,7 +31,7 @@ export default function Login(props) {
   };
 
   return (
-    <body>
+    <div class="loginbody">
       <div class="login">
         <div class="login-container">
           <div class="wrap-login">
@@ -85,6 +85,6 @@ export default function Login(props) {
           </div>
         </div>
       </div>
-    </body>
+    </div>
   );
 }
