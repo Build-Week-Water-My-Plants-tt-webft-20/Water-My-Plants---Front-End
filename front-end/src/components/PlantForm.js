@@ -1,43 +1,40 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useHistory, } from 'react-router-dom'
 import "../components/CSS/Dashboard.css";
 
-export default function PlantForm({ addPlant, editPlant, editing, plant }) {
+const initialForm = {
+  frequency: "",
+  species: "",
+  nickname: "",
+  diameter: "",
+  image: ""
+}
+
+export default function PlantForm({setDisplayForm, plantList, setPlantList}) {
   
-  const [form, setForm] = useState({
-    frequency: "",
-    species: "",
-    nickname: "",
-    diameter: "",
-    image: ""
-})
+  const [form, setForm] = useState(initialForm)
 
-const { push } = useHistory();
+  const { push } = useHistory();
 
-useEffect(() => {
-    setForm({ ...plant })
-    console.log(plant)
-}, [plant])
+  // useEffect(() => {
+  // }, [])
 
-const handleChange = (e) => {
-    setForm({
-        ...form,
-        [e.target.name]: e.target.value
-    })
-}
+  const handleChange = (e) => {
+      setForm({
+          ...form,
+          [e.target.name]: e.target.value
+      })
+  }
 
-const handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
-    editing ? editPlant(plant.id, form) : addPlant(form)
-    setForm({
-      frequency: "",
-      species: "",
-      nickname: "",
-      diameter: "",
-      image: ""
-    })
-    push("/dashboard")
-}
+    setPlantList([
+      ...plantList,
+      form
+    ])
+    setForm(initialForm)
+    setDisplayForm(false)
+  }
   
   return (
     <div className="plant-form">
@@ -53,7 +50,7 @@ const handleSubmit = (e) => {
 
         <input name="image" type="text" value={form.image} onChange={handleChange} placeholder="Image URL" />
 
-        <button className="add" type="submit">{editing ? "edit" : "add"}</button>
+        <button className="add" type="submit">add</button>
 
       </form>
     </div>
