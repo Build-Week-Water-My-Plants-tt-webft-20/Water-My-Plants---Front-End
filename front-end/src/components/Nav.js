@@ -20,7 +20,7 @@ const NavigationBar = () => {
       {/* NAV BAR LINKS TO ROUTES */}
       <nav className="nav-links">
         <Link className="nav-link" to="/signup">
-          Signup
+          Sign Up!
 
         </Link>
 
@@ -29,7 +29,7 @@ const NavigationBar = () => {
         </Link>
 
         <Link className="nav-link" to="/dashboard">
-          Plant List
+          Dashboard
         </Link>
 
         <Link className="nav-link" to="/plant-form">

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function PlantList() {
+export default function Dashboard() {
   return (
     <div>
       Private Plant List Goes Here
