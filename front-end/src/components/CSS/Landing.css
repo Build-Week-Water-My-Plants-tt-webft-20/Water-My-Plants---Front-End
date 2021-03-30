@@ -30,22 +30,14 @@ html {
   align-items: center;
   text-align: center;
   width: 60%;
-  height: auto;
-  margin-bottom: 2rem;
-  padding: 2rem;
-  background: repeating-linear-gradient(
-    45deg,
-    #469438,
-    #469438 10px,
-    #57b846 10px,
-    #57b846 20px
-  );
+  height: 50vh;
+  margin-bottom: 20px;
+  background: white;
 }
-.bannertext {
-  margin-bottom: 3rem;
-  height: 60vh;
-  background-color: #fff;
+.banner-container {
+  display: flex;
 }
+
 .bannertext {
   margin-bottom: 200px;
   width: 50%;
@@ -56,15 +48,15 @@ html {
 .imgcont {
   width: 200%;
   height: auto;
+  margin-top: 60px;
 }
 
 .logotop {
-  width: 500px;
-  margin-bottom: 0;
+  width: 400px;
+  margin-bottom: -70px;
 }
 
 span {
-
   width: 50%;
   color: black;
   font-size: 2.5rem;
@@ -72,7 +64,6 @@ span {
   width: 70%;
   color: #57b846;
   font-size: 25px;
-
 }
 
 .middle {
@@ -94,7 +85,6 @@ h1 {
   height: auto;
   background-color: #57b846;
   margin-bottom: 2rem;
-  padding: 2rem;
 }
 .works2 {
   display: flex;
@@ -103,7 +93,6 @@ h1 {
   height: auto;
   background-color: #57b846;
   margin-bottom: 2rem;
-  padding: 2rem;
 }
 .works3 {
   display: flex;
@@ -112,7 +101,6 @@ h1 {
   height: auto;
   background-color: #57b846;
   margin-bottom: 2rem;
-  padding: 2rem;
 }
 .step1 {
   display: flex;
@@ -123,6 +111,8 @@ h1 {
   width: 50%;
   color: #fff;
   background-color: #469438;
+  border: red 2px solid;
+  height: 100%;
 }
 .step2 {
   display: flex;
@@ -131,6 +121,7 @@ h1 {
   align-items: center;
   text-align: center;
   width: 50%;
+  height: 100%;
   color: #fff;
   background-color: #469438;
 }
@@ -180,7 +171,7 @@ p {
   height: 90%;
   letter-spacing: 0.0375em;
   line-height: 2;
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
@@ -189,15 +180,15 @@ img {
   height: auto;
 }
 
-
-@media (max-width: 640px){
-  body, html {
+@media (max-width: 640px) {
+  body,
+  html {
     width: 100vw;
     height: auto;
   }
   .main {
     min-width: 256px;
-    width: 100%;    
+    width: 100%;
   }
   h1 {
     font-size: 3.2rem;
@@ -239,8 +230,4 @@ img {
     width: 100%;
     margin-top: 1.5rem;
   }
-
 }
-
-
-
