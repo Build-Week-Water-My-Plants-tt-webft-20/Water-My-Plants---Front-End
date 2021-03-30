@@ -40,7 +40,8 @@ export default function Landing() {
         <div className="works2">
           <div className="para2">
             <p>
-              List your varieties of plants, when they need watering, and how much water to give them.
+              List your varieties of plants, when they need watering, and how
+              much water to give them.
             </p>
           </div>
           <div className="step2">
