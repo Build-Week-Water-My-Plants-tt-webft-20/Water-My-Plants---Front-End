@@ -4,10 +4,10 @@ import { Link, useHistory } from "react-router-dom";
 const NavigationBar = () => {
     const { push } = useHistory();
 
-    //   signout button that pushes back to home component
+    //   signout button that pushes back to home page
     const signOut = () => {
         window.localStorage.removeItem("token");
-        push("/home");
+        push("/");
     };
 
     return (
