@@ -10,9 +10,8 @@ export default function Landing() {
       <div className="middle">
         <div className="banner">
           <div className="banner-container">
-            <div className="imgcont">
-              <img className="logotop" src={logo5} alt="" />
-            </div>
+            <img className="logotop" src={logo5} alt="" />
+
             <div className="bannertext">
               <span>
                 WaterMyPlants helps you manage your time, so you can help your
