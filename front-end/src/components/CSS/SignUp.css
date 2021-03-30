@@ -75,40 +75,12 @@ button:hover {
   cursor: pointer;
 }
 
-.loginbody {
-  background-color: #343b3f;
-}
-
-.txt1 {
-  font-family: "Ubuntu";
-  font-size: 15px;
-  color: #999999;
-  line-height: 1.4;
-  margin-right: 2px;
-}
-
-.txt2 {
-  font-family: "Ubuntu";
-  font-size: 15px;
-  color: #57b846;
-  line-height: 1.4;
-}
-
-.txt3 {
-  font-family: "Ubuntu";
-  font-weight: bold;
-  font-size: 15px;
-  color: #57b846;
-  line-height: 1.4;
-  text-transform: uppercase;
-}
-
-.login {
+.signup {
   width: 100%;
   margin: 0 auto;
 }
 
-.login-container {
+.signup-container {
   width: 100%;
   min-height: 100vh;
   display: flex;
@@ -120,7 +92,7 @@ button:hover {
   background-color: #343b3f;
 }
 
-.wrap-login {
+.wrap-signup {
   width: 500px;
   background: #fff;
   border-radius: 20px;
@@ -128,7 +100,7 @@ button:hover {
   box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
 }
 
-.login-form {
+.signup-form {
   width: 100%;
   position: relative;
   padding-right: 55px;
@@ -136,7 +108,7 @@ button:hover {
   padding-top: 178px;
 }
 
-.login-form-title {
+.signup-form-title {
   font-family: "Josefin Sans";
   font-weight: bold;
   font-size: 30px;
@@ -153,8 +125,32 @@ button:hover {
   padding-top: 50px;
   padding-bottom: 39px;
 }
+.firstname-input {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 27px;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 16px;
+}
+.lastname-input {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 27px;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 16px;
+}
 
 .username-input {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 27px;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 16px;
+}
+.email-input {
   width: 100%;
   background-color: #fff;
   border-radius: 27px;
@@ -169,6 +165,7 @@ button:hover {
   border-radius: 27px;
   position: relative;
   z-index: 1;
+  margin-bottom: 16px;
 }
 
 .input {
@@ -203,10 +200,6 @@ button:hover {
   transition: all 0.4s;
 }
 
-.input100:focus + .focus-input100 {
-  width: calc(100% + 20px);
-}
-
 .btn-container {
   width: 100%;
   display: flex;
@@ -214,13 +207,7 @@ button:hover {
   justify-content: center;
 }
 
-.text-right {
-  padding-bottom: 23px;
-  padding-top: 13px;
-  text-align: right !important;
-}
-
-.login-form-btn {
+.signup-form-btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -229,6 +216,7 @@ button:hover {
   height: 50px;
   background-color: #57b846;
   border-radius: 25px;
+  margin-bottom: 20px;
 
   font-family: "Ubuntu";
   font-weight: bold;
@@ -241,12 +229,4 @@ button:hover {
 
 .login-form-btn:hover {
   background-color: #1b3815;
-}
-
-.bottom {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 170px;
-  padding-bottom: 40px;
 }
