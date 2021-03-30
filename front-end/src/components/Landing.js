@@ -9,15 +9,13 @@ export default function Landing() {
     <div className="main">
       <div className="middle">
         <div className="banner">
-          <div className="banner-container">
-            <img className="logotop" src={logo5} alt="" />
+          <img className="logotop" src={logo5} alt="" />
 
-            <div className="bannertext">
-              <span>
-                WaterMyPlants helps you manage your time, so you can help your
-                plants thrive!
-              </span>
-            </div>
+          <div className="bannertext">
+            <span>
+              WaterMyPlants helps you manage your time, so you can help your
+              plants thrive!
+            </span>
           </div>
         </div>
 
