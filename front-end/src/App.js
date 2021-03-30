@@ -27,7 +27,7 @@ function App() {
       </Route>
       ,
       <Route path="/signup">
-        <SignUp />
+        <Signup />
       </Route>
     </div>
   );
