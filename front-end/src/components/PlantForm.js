@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory, } from 'react-router-dom'
+import "../components/CSS/Dashboard.css";
 
 export default function PlantForm({ addPlant, editPlant, editing, plant }) {
   
   const [form, setForm] = useState({
-    plant_type: "",
-    plant_species: "",
-    plant_nickname: "",
-    water_freq: ""
+    frequency: "",
+    species: "",
+    nickname: "",
+    diameter: "",
+    image: ""
 })
 
 const { push } = useHistory();
@@ -28,29 +30,32 @@ const handleSubmit = (e) => {
     e.preventDefault()
     editing ? editPlant(plant.id, form) : addPlant(form)
     setForm({
-        plant_type: "",
-        plant_species: "",
-        plant_nickname: "",
-        water_freq: ""
+      frequency: "",
+      species: "",
+      nickname: "",
+      diameter: "",
+      image: ""
     })
     push("/dashboard")
 }
   
   return (
-    <div>
-    <form onSubmit={handleSubmit}>
+    <div className="plant-form">
+      <form onSubmit={handleSubmit}>
 
-      <input name="plant_type" type="text" value={form.plant_type} onChange={handleChange} placeholder="Type" />
+        <input name="frequency" type="text" value={form.frequency} onChange={handleChange} placeholder="Frequency" />
 
-      <input name="plant_species" type="text" value={form.plant_species} onChange={handleChange} placeholder="Species" />
+        <input name="species" type="text" value={form.species} onChange={handleChange} placeholder="Species" />
 
-      <input name="plant_nickname" type="text" value={form.plant_nickname} onChange={handleChange} placeholder="Nickname" />
+        <input name="nickname" type="text" value={form.nickname} onChange={handleChange} placeholder="Nickname" />
 
-      <input name="water_freq" type="text" value={form.water_freq} onChange={handleChange} placeholder="Watering Frequency" />
+        <input name="diameter" type="text" value={form.diameter} onChange={handleChange} placeholder="Diameter" />
 
-      <button type="submit">{editing ? "edit" : "add"}</button>
+        <input name="image" type="text" value={form.image} onChange={handleChange} placeholder="Image URL" />
 
-    </form>
+        <button className="add" type="submit">{editing ? "edit" : "add"}</button>
+
+      </form>
     </div>
   )
 }
