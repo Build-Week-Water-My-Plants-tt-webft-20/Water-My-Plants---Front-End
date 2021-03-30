@@ -1,4 +1,4 @@
-export const plantData = [
+const plantData = [
   {
     id: "001",
     type: "shrub",
@@ -44,3 +44,5 @@ export const plantData = [
     frequency: "",
     image: "https://cdn11.bigcommerce.com/s-f74ff/images/stencil/1280x1280/products/9840/28918/tree-seedlings-sugar-maple-seedlings-sugar-maple-seedlings__09893.1600792911.jpg?c=2"}
 ]
+
+export default plantData
