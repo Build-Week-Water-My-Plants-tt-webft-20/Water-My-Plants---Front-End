@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import axios from "axios";
+// import axios from "axios";
+import {useHistory} from 'react-router-dom'
 import "../components/CSS/Login.css";
 
 const emptyCredentials = {
@@ -9,6 +10,7 @@ const emptyCredentials = {
 
 export default function Login(props) {
   const [credentials, setCredentials] = useState(emptyCredentials);
+  const history = useHistory();
 
   const onChange = (e) => {
     setCredentials({
@@ -19,22 +21,28 @@ export default function Login(props) {
 
   const login = (e) => {
     e.preventDefault();
-    axios
-      .post("", credentials)
-      .then((res) => {
-        localStorage.setItem("token", res.data);
-      })
-      .then(() => {
-        props.history.push("/");
-      })
-      .catch((err) => console.log(err));
+
+    // Setting test token to display private routes
+    localStorage.setItem("token", "test-token");
+
+    // axios
+    //   .post("", credentials)
+    //   .then((res) => {
+    //     localStorage.setItem("token", res.data);
+    //   })
+    //   .then(() => {
+    //     props.history.push("/");
+    //   })
+    //   .catch((err) => console.log(err));
+
+    history.push('/dashboard')
   };
 
   return (
     <div className="login">
       <div className="login-container">
         <div className="wrap-login">
-          <form className="login-form">
+          <form className="login-form" onSubmit={login}>
             <span className="login-form-title">Sign In</span>
 
             <div className="username-input">
@@ -53,30 +61,23 @@ export default function Login(props) {
               <input
                 className="input"
                 type="password"
-                name="pass"
+                name="password"
                 placeholder="Password"
                 value={credentials.password}
                 onChange={onChange}
               />
-              <span className="spaninput"></span>
+              <br></br>
             </div>
 
-            <div className="text-right">
-              <span className="txt1">Forgot</span>
-
-              <a href="#" className="txt2">
-                Username / Password?
-              </a>
-            </div>
 
             <div className="btn-container">
-              <button className="login-form-btn">Sign in</button>
+              <button type="submit" className="login-form-btn">Sign in</button>
             </div>
 
             <div className="bottom">
               <span className="txt1">Don’t have an account?</span>
 
-              <a href="#" className="txt3">
+              <a href="/signup" className="txt3">
                 Sign up now
               </a>
             </div>

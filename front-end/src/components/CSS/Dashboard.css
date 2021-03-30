@@ -1,0 +1,15 @@
+.plant-card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid black;
+  width: 20vw;
+  height: auto;
+}
+
+.plant-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
