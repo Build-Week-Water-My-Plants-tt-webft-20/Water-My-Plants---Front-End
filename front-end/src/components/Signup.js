@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import "../components/CSS/SignUp.css";
 
 const Signup = (props) => {
     const [values, setValues] = useState({
         username: "",
         password: "",
-        phonenumber: "",
+        phoneNumber: "",
     });
 
     const { push } = useHistory();
@@ -34,47 +35,56 @@ const Signup = (props) => {
     };
 
 return (
-    <div>
-        <h1 className="signup-header">
-        Get started with us Today Create Your account
-        </h1>
-        <div className="signup-container">
-    <form onSubmit={handleSubmit}>
-        Username:
-        <div className="form-inputs">
-            <input
-                    type="text"
-                    name="username"
-                    placeholder="Enter Your username"
-                    value={values.username}
-                    onChange={handleChange}
+    <div className="signup">
+      <div className="signup-container">
+        <div className="wrap-signup">
+          <form className="signup-form">
+            <form onSubmit={handleSubmit}>
+              <h1 className="signup-header">Get started with us today!</h1>
+            <div className="input-container">
+              <div className="username-input">
+               <input
+                className="input"
+                type="text"
+                name="username"
+                placeholder="Enter Your username"
+                value={values.username}
+                onChange={handleChange}
                 />
-        </div>
-        Password:
-        <div className="form-inputs">
-                <input
-                    type="text"
-                    name="password"
-                    placeholder="Enter Your password"
-                    value={values.password}
-                    onChange={handleChange}
+                <span className="span-input"></span>
+               </div>
+
+              <div className="password-input">
+               <input
+                className="input"
+                type="password"
+                name="pass"
+                placeholder="Enter Your password"
+                value={values.password}
+                onChange={handleChange}
                 />
-        </div>
-        Phone Number:
-        <div className="form-inputs">
-            <input
-                    type="text"
-                    name="phonenumber"
-                    placeholder="Enter Your Phone Number"
-                    value={values.phonenumber}
-                    onChange={handleChange}
+                <span className="spaninput"></span>
+              </div>
+
+              <div className="phonenumber-input">
+               <input
+                className="input"
+                type="text"
+                name="phoneNumber"
+                placeholder="Enter Your Phone Number"
+                value={values.phoneNumber}
+                onChange={handleChange}
                 />
-        </div>    
-        <button className="form-input-btn" type="submit">
-        Sign Up
-        </button>
-    </form>
+                <span className="spaninput"></span>
+              </div>
+            </div>
+            <div className="btn-container">    
+            <button className="signup-form-btn" type="submit">Sign Up</button>
+            </div>
+            </form>
+          </form>
         </div>
+      </div>
     </div>
     );
 };

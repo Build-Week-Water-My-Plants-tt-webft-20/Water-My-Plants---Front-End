@@ -32,24 +32,6 @@ input:focus {
   border-color: transparent !important;
 }
 
-a {
-  font-family: "Ubuntu";
-  font-size: 14px;
-  line-height: 1.7;
-  color: #666666;
-  margin: 0px;
-  transition: all 0.4s;
-}
-
-a:focus {
-  outline: none !important;
-}
-
-a:hover {
-  text-decoration: none;
-  color: #1b3815;
-}
-
 h1,
 h2,
 h3,
@@ -75,6 +57,8 @@ button:hover {
   cursor: pointer;
 }
 
+
+
 .signup {
   width: 100%;
   margin: 0 auto;
@@ -82,7 +66,7 @@ button:hover {
 
 .signup-container {
   width: 100%;
-  min-height: 100vh;
+  min-height: 80vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -105,10 +89,10 @@ button:hover {
   position: relative;
   padding-right: 55px;
   padding-left: 55px;
-  padding-top: 178px;
+  padding-top: 278px;
 }
 
-.signup-form-title {
+.signup-header {
   font-family: "Josefin Sans";
   font-weight: bold;
   font-size: 30px;
@@ -125,21 +109,9 @@ button:hover {
   padding-top: 50px;
   padding-bottom: 39px;
 }
-.firstname-input {
-  width: 100%;
-  background-color: #fff;
-  border-radius: 27px;
-  position: relative;
-  z-index: 1;
-  margin-bottom: 16px;
-}
-.lastname-input {
-  width: 100%;
-  background-color: #fff;
-  border-radius: 27px;
-  position: relative;
-  z-index: 1;
-  margin-bottom: 16px;
+
+.input-container {
+  margin: -25% auto 20% auto;
 }
 
 .username-input {
@@ -148,15 +120,7 @@ button:hover {
   border-radius: 27px;
   position: relative;
   z-index: 1;
-  margin-bottom: 16px;
-}
-.email-input {
-  width: 100%;
-  background-color: #fff;
-  border-radius: 27px;
-  position: relative;
-  z-index: 1;
-  margin-bottom: 16px;
+  margin-bottom: 30px;
 }
 
 .password-input {
@@ -165,7 +129,16 @@ button:hover {
   border-radius: 27px;
   position: relative;
   z-index: 1;
-  margin-bottom: 16px;
+  margin-bottom: 30px;
+}
+
+.phonenumber-input {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 27px;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 30px;
 }
 
 .input {
@@ -200,11 +173,16 @@ button:hover {
   transition: all 0.4s;
 }
 
+.input100:focus + .focus-input100 {
+  width: calc(100% + 20px);
+}
+
 .btn-container {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: 30px;
 }
 
 .signup-form-btn {
@@ -216,7 +194,6 @@ button:hover {
   height: 50px;
   background-color: #57b846;
   border-radius: 25px;
-  margin-bottom: 20px;
 
   font-family: "Ubuntu";
   font-weight: bold;
@@ -227,6 +204,6 @@ button:hover {
   transition: all 0.4s;
 }
 
-.login-form-btn:hover {
+.signup-form-btn:hover {
   background-color: #1b3815;
 }
