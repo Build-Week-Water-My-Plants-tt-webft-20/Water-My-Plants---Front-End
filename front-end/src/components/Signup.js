@@ -58,7 +58,7 @@ return (
                <input
                 className="input"
                 type="password"
-                name="pass"
+                name="password"
                 placeholder="Enter Your password"
                 value={values.password}
                 onChange={handleChange}
