@@ -78,59 +78,59 @@ export default function Signup() {
     <body>
       <div className="signup">
         <div className="signup-container">
-          <div class="wrap-signup">
+          <div className="wrap-signup">
             <form className="signup-form">
-              <span class="signup-form-title">Sign Up Here</span>
-              <div class="firstname-input">
+              <span className="signup-form-title">Sign Up Here</span>
+              <div className="firstname-input">
                 <input
-                  class="input"
+                  className="input"
                   type="text"
                   name="name"
                   placeholder="Name"
                   alue={formValues.name}
                   onChange={onChange}
                 />
-                <span class="spaninput"></span>
+                <span className="spaninput"></span>
               </div>
 
-              <div class="username-input">
+              <div className="username-input">
                 <input
-                  class="input"
+                  className="input"
                   type="text"
                   name="username"
                   placeholder="Username"
                   value={formValues.username}
                   onChange={onChange}
                 />
-                <span class="spaninput"></span>
+                <span className="spaninput"></span>
               </div>
 
-              <div class="email-input">
+              <div className="email-input">
                 <input
-                  class="input"
+                  className="input"
                   type="text"
                   name="email"
                   placeholder="Email"
                   value={formValues.email}
                   onChange={onChange}
                 />
-                <span class="spaninput"></span>
+                <span className="spaninput"></span>
               </div>
 
-              <div class="password-input">
+              <div className="password-input">
                 <input
-                  class="input"
+                  className="input"
                   type="password"
                   name="pass"
                   placeholder="Password"
                   value={formValues.password}
                   onChange={onChange}
                 />
-                <span class="spaninput"></span>
+                <span className="spaninput"></span>
               </div>
 
-              <div class="btn-container">
-                <button class="signup-form-btn">Sign in</button>
+              <div className="btn-container">
+                <button className="signup-form-btn">Sign in</button>
               </div>
             </form>
           </div>
