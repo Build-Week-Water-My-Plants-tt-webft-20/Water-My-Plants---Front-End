@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import "../components/CSS/Dashboard.css";
 import UpdatePlant from './UpdatePlant';
 
-export default function PlantCard({plantDetails}) {
+export default function PlantCard({plantDetails, plantList, setPlantList}) {
   const {species, nickname, diameter, frequency, image} = plantDetails
 
   const [editForm, setEditForm] = useState(false)
@@ -36,7 +36,11 @@ export default function PlantCard({plantDetails}) {
           </div>
         </div>
       </div>}
-      {editForm && <UpdatePlant plantDetails={plantDetails}/>}
+      {editForm && <UpdatePlant
+        plantDetails={plantDetails}
+        plantList={plantList}
+        setPlantList={setPlantList}
+      />}
     </div>
   )
 }

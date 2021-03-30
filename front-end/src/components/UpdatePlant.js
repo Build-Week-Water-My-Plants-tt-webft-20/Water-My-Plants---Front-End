@@ -31,7 +31,7 @@ export default function UpdatePlant({setDisplayForm, plantList, setPlantList, pl
   }
   
   return (
-    <div className="plant-form">
+    <div className="update-form">
       <form onSubmit={handleSubmit}>
 
         <input name="frequency" type="text" value={form.frequency} onChange={handleChange} placeholder="Frequency" />
@@ -44,7 +44,7 @@ export default function UpdatePlant({setDisplayForm, plantList, setPlantList, pl
 
         <input name="image" type="text" value={form.image} onChange={handleChange} placeholder="Image URL" />
 
-        <button className="add" type="submit">add</button>
+        <button className="add" type="submit">Update</button>
 
       </form>
     </div>

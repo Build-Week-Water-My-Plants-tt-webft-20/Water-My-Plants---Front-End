@@ -30,6 +30,8 @@ export default function Dashboard() {
           return <PlantCard
             key={plant.id}
             plantDetails={plant}
+            plantList={plantList}
+            setPlantList={setPlantList}
           />
         })}
       </div>
