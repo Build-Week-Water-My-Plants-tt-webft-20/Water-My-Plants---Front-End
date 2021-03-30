@@ -10,9 +10,7 @@ import Dashboard from './components/Dashboard'
 import PlantForm from './components/PlantForm'
 
 function App() {
-
-  // Setting test token to display private routes
-  // localStorage.setItem("token", "2264574286");
+  localStorage.clear();
   
   return (
     <div className="App">

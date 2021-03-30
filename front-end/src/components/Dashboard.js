@@ -9,7 +9,7 @@ export default function Dashboard() {
   useEffect(() => {
     setPlantList(plantData)
   }, [])
-  
+
   return (
     <div className="dashboard">
       <h1>My Plants</h1>
