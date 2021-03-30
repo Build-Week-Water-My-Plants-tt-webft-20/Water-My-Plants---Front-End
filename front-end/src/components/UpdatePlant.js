@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-// import { useHistory, } from 'react-router-dom'
 import "../components/CSS/Dashboard.css";
+// import plantData from '../plantData';
 
 const initialForm = {
   frequency: "",
@@ -10,14 +10,9 @@ const initialForm = {
   image: ""
 }
 
-export default function PlantForm({setDisplayForm, plantList, setPlantList}) {
+export default function UpdatePlant({ plantList, setPlantList, plantDetails, setEditForm, id}) {
   
-  const [form, setForm] = useState(initialForm)
-
-  // const { push } = useHistory();
-
-  // useEffect(() => {
-  // }, [])
+  const [form, setForm] = useState(plantDetails)
 
   const handleChange = (e) => {
       setForm({
@@ -28,16 +23,21 @@ export default function PlantForm({setDisplayForm, plantList, setPlantList}) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    setPlantList([
-      ...plantList,
-      form
-    ])
+    console.log(form)
+    setPlantList(
+      plantList.map(plant => {
+        if (`${plant.id}` === id) {
+          return form;
+        }
+        return plant;
+      })
+    )
     setForm(initialForm)
-    setDisplayForm(false)
+    setEditForm(false)
   }
   
   return (
-    <div className="plant-form">
+    <div className="update-form">
       <form onSubmit={handleSubmit}>
 
         <input name="frequency" type="text" value={form.frequency} onChange={handleChange} placeholder="Frequency" />
@@ -50,7 +50,7 @@ export default function PlantForm({setDisplayForm, plantList, setPlantList}) {
 
         <input name="image" type="text" value={form.image} onChange={handleChange} placeholder="Image URL" />
 
-        <button className="add" type="submit">add</button>
+        <button className="add" type="submit">Update</button>
 
       </form>
     </div>

@@ -27,7 +27,12 @@ export default function Dashboard() {
       <h1>My Plants</h1>
       <div className="plant-container">
         {plantList.map(plant => {
-          return <PlantCard key={plant.id} plantDetails={plant}/>
+          return <PlantCard
+            key={plant.id}
+            plantDetails={plant}
+            plantList={plantList}
+            setPlantList={setPlantList}
+          />
         })}
       </div>
 
@@ -40,7 +45,11 @@ export default function Dashboard() {
       </div>}
 
       {displayForm &&
-        <PlantForm />}
+        <PlantForm 
+          setDisplayForm={setDisplayForm}
+          plantList={plantList}
+          setPlantList={setPlantList}
+        />}
     </div>
   )
 }
