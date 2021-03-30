@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import PlantCard from './PlantCard'
 import plantData from '../plantData'
+import "../components/CSS/Dashboard.css";
+
 const initialList = []
 
 export default function Dashboard() {
