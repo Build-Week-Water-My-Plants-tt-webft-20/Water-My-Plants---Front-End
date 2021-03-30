@@ -3,7 +3,7 @@ import "../components/CSS/Dashboard.css";
 import UpdatePlant from './UpdatePlant';
 
 export default function PlantCard({plantDetails, plantList, setPlantList}) {
-  const {species, nickname, diameter, frequency, image} = plantDetails
+  const {species, nickname, diameter, frequency, image, id} = plantDetails
 
   const [editForm, setEditForm] = useState(false)
 
@@ -40,6 +40,8 @@ export default function PlantCard({plantDetails, plantList, setPlantList}) {
         plantDetails={plantDetails}
         plantList={plantList}
         setPlantList={setPlantList}
+        setEditForm={setEditForm}
+        id={id}
       />}
     </div>
   )

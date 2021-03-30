@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import "../components/CSS/Dashboard.css";
+// import plantData from '../plantData';
 
 const initialForm = {
   frequency: "",
@@ -9,9 +10,9 @@ const initialForm = {
   image: ""
 }
 
-export default function UpdatePlant({setDisplayForm, plantList, setPlantList, plantDetails}) {
+export default function UpdatePlant({ plantList, setPlantList, plantDetails, setEditForm, id}) {
   
-  const [form, setForm] = useState(initialForm)
+  const [form, setForm] = useState(plantDetails)
 
   const handleChange = (e) => {
       setForm({
@@ -22,12 +23,17 @@ export default function UpdatePlant({setDisplayForm, plantList, setPlantList, pl
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    setPlantList([
-      ...plantList,
-      
-    ])
+    console.log(form)
+    setPlantList(
+      plantList.map(plant => {
+        if (`${plant.id}` === id) {
+          return form;
+        }
+        return plant;
+      })
+    )
     setForm(initialForm)
-    setDisplayForm(false)
+    setEditForm(false)
   }
   
   return (
