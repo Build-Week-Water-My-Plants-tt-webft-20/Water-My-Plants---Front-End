@@ -1,3 +1,9 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .plant-card {
   box-sizing: border-box;
   display: flex;
@@ -12,4 +18,24 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+}
+
+.button {
+  color: white;
+  font-weight: bold;
+  font-style: italic;
+  background: #57b846;
+  padding: 10px;
+  margin: 1vw;
+  width: 10vw;
+}
+
+.form-button {
+  color: white;
+  font-weight: bold;
+  font-style: italic;
+  background: #57b846;
+  padding: 10px;
+  margin: 1vw;
+  width: 10vw;
 }

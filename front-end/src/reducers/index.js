@@ -1,11 +1,9 @@
+import plantData from '../plantData'
+
 const initialState = {
-  id: "",
-  type: "",
-  species: "",
-  nickname: "",
-  diameter: "",
-  frequency: "",
-  image: ""};
+  plants: plantData,
+  
+};
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {

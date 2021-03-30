@@ -31,11 +31,11 @@ export default function Dashboard() {
         })}
       </div>
 
-      {!displayForm && <div className="button" onClick={openForm}>
+      {!displayForm && <div className="form-button" onClick={openForm}>
         Add Plant
       </div>}
 
-      {displayForm && <div className="button" onClick={closeForm}>
+      {displayForm && <div className="form-button" onClick={closeForm}>
         Close
       </div>}
 
