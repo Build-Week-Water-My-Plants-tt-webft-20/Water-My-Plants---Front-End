@@ -1,8 +1,8 @@
 import "../components/CSS/Landing.css";
 import plant1 from "../components/images/plant1.PNG";
 import plant2 from "../components/images/plant2.png";
-import plant3 from "../components/images/plant3.png";
-import logo from "../components/images/logo.png";
+import plant3b from "../components/images/plant3b.png";
+import logo5 from "../components/images/logo5.PNG";
 
 export default function Landing() {
   return (
@@ -11,14 +11,12 @@ export default function Landing() {
         <div className="banner">
           <div className="banner-container">
             <div className="imgcont">
-              <img src={logo} alt="" />
+              <img className="logotop" src={logo5} alt="" />
             </div>
             <div className="bannertext">
               <span>
-                WaterMyPlants makes it easy to designate the amount of times you
-                water specific plants per day, so that you can better and more
-                effectively manage your time and ensure that your plants get
-                watered when they need to.
+                WaterMyPlants helps you manage your time, so you can help your
+                plants thrive!
               </span>
             </div>
           </div>
@@ -42,8 +40,8 @@ export default function Landing() {
         <div className="works2">
           <div className="para2">
             <p>
-              Create your plants and designate their water frequencies to ensure
-              that you keep your plants healthy.
+              List your varieties of plants, when they need watering, and how
+              much water to give them.
             </p>
           </div>
           <div className="step2">
@@ -57,14 +55,15 @@ export default function Landing() {
           <div className="step3">
             <h1>Step 3</h1>
             <div className="image">
-              <img src={plant3} alt="" />
+              <img src={plant3b} alt="" />
             </div>
           </div>
           <div className="para3">
             <p>
-              Your plants get watered <br />
+              Receive alerts to remind you when each plant needs watering.
+              {/* Your plants get watered <br />
               when they need to, <br />
-              without even thinking about it.
+              without even thinking about it. */}
             </p>
           </div>
         </div>

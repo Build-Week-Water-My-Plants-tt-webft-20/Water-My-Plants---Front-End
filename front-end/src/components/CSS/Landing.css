@@ -11,7 +11,7 @@ body,
 html {
   height: 100%;
   font-family: "Ubuntu";
-  font-size: 1rem;
+  font-size: 62.5%;
   font-weight: 400;
   line-height: 1.5;
   background-color: #343b3f;
@@ -30,33 +30,39 @@ html {
   align-items: center;
   text-align: center;
   width: 60%;
-  height: 60vh;
-  background: repeating-linear-gradient(
-    45deg,
-    #469438,
-    #469438 10px,
-    #57b846 10px,
-    #57b846 20px
-  );
+  height: 50vh;
+  margin-bottom: 20px;
+  background: white;
 }
+.banner-container {
+  display: flex;
+}
+
 .bannertext {
-  margin-bottom: 30px;
+  margin-bottom: 200px;
   width: 50%;
+  padding: 20px;
+  border: 3px solid #57b846;
+  border-radius: 4px;
 }
 .imgcont {
-  width: 70%;
+  width: 200%;
   height: auto;
+  margin-top: 60px;
 }
-.imgcont img {
-  width: 50%;
-  height: auto;
+
+.logotop {
+  width: 400px;
+  margin-bottom: -70px;
 }
 
 span {
   width: 50%;
-  color: white;
-  text-shadow: 2px 2px 0px black;
-  font-size: 20px;
+  color: black;
+  font-size: 2.5rem;
+  width: 70%;
+  color: #57b846;
+  font-size: 25px;
 }
 
 .middle {
@@ -67,55 +73,76 @@ span {
   flex-wrap: wrap;
 }
 
+h1 {
+  font-size: 4rem;
+}
+
 .works1 {
   display: flex;
+  align-items: center;
   width: 60%;
-  height: 40vh;
+  height: auto;
   background-color: #57b846;
-  margin-bottom: 20px;
+  margin-bottom: 2rem;
 }
 .works2 {
   display: flex;
+  align-items: center;
   width: 60%;
-  height: 40vh;
+  height: auto;
   background-color: #57b846;
-  margin-bottom: 20px;
+  margin-bottom: 2rem;
 }
 .works3 {
   display: flex;
+  align-items: center;
   width: 60%;
-  height: 40vh;
+  height: auto;
   background-color: #57b846;
-  margin-bottom: 20px;
+  margin-bottom: 2rem;
 }
 .step1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-
   width: 50%;
   color: #fff;
   background-color: #469438;
+  border: red 2px solid;
+  height: 100%;
 }
 .step2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-
   width: 50%;
+  height: 100%;
   color: #fff;
-
   background-color: #469438;
 }
 .step3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-
   width: 50%;
   color: #fff;
   background-color: #469438;
+}
+.step3 img {
+  width: 200px;
+  margin-top: 0;
 }
 
 .para1 {
   display: flex;
   justify-content: center;
   align-items: center;
-
   width: 50%;
   height: 100%;
   color: #fff;
@@ -124,7 +151,6 @@ span {
   display: flex;
   justify-content: center;
   align-items: center;
-
   width: 50%;
   height: 100%;
   color: #fff;
@@ -133,8 +159,6 @@ span {
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
-
   width: 50%;
   height: 100%;
   color: #fff;
@@ -144,15 +168,65 @@ p {
   text-align: center;
   width: 90%;
   height: 90%;
-  margin-top: 80px;
   letter-spacing: 0.0375em;
   line-height: 2;
-  font-size: 25px;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
 img {
   width: 150px;
   height: auto;
-  margin-top: 70px;
+}
+
+@media (max-width: 640px) {
+  body,
+  html {
+    width: 100vw;
+    height: auto;
+  }
+  .main {
+    min-width: 256px;
+    width: 100%;
+  }
+  h1 {
+    font-size: 3.2rem;
+  }
+  p {
+    font-size: 2rem;
+    line-height: 1.5;
+  }
+  .works1 {
+    flex-direction: column;
+    min-width: 256px;
+  }
+  .works2 {
+    flex-direction: column-reverse;
+    min-width: 256px;
+  }
+  .works3 {
+    flex-direction: column;
+    min-width: 256px;
+  }
+  .step1 {
+    width: 100%;
+  }
+  .step2 {
+    width: 100%;
+  }
+  .step3 {
+    width: 100%;
+  }
+  .para1 {
+    width: 100%;
+    margin-top: 1.5rem;
+  }
+  .para2 {
+    width: 100%;
+    margin-top: 1.5rem;
+  }
+  .para3 {
+    width: 100%;
+    margin-top: 1.5rem;
+  }
 }
