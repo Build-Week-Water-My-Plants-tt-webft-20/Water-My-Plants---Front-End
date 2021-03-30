@@ -1,9 +1,9 @@
 import "./App.css";
-import NavigationBar from "./components/Nav.js";
+import NavigationBar from "./components/Nav";
 import Landing from "./components/Landing";
-import SignUp from "./components/SignUp";
+import Login from "./components/Login"
+import Signup from "./components/Signup"
 
-import Login from "./components/Login";
 import { Route } from "react-router-dom";
 import PrivateRoute from './components/PrivateRoute'
 import PlantList from './components/PlantList'
@@ -14,7 +14,6 @@ function App() {
     <div className="App">
       <NavigationBar />
 
-      
       <PrivateRoute exact path="plant-list" component={PlantList} />
       <PrivateRoute exact path="add-plant" component={AddPlant} />
       
