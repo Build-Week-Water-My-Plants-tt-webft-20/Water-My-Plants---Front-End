@@ -12,9 +12,9 @@ const emptyCredentials = {
 }
 
 const initialErrors = {
-  name: "", 
-  password: "",
-  phoneNumber: "",
+  user_username: "", 
+  user_password: "",
+  user_phone_number: "",
 }
 
 const RegExpress = /^[/+]?[(]?[0-9]{3}[)]?[-\s/.]?[0-9]{3}[-\s/.]?[0-9]{4,6}$/;
@@ -26,11 +26,11 @@ const Signup = () => {
   const { push } = useHistory()
 
   const schema = yup.object().shape({
-    name: yup.string().required("Name is a required field."),
-    password: yup.string().required("Password is required!"),
-    phoneNumber: yup.string().matches(RegExpress, 'Phone number is not valid'),
+    user_username: yup.string().required("Name is a required field."),
+    user_password: yup.string().required("Password is required!"),
+    user_phone_number: yup.string().matches(RegExpress, 'Phone number is not valid'),
   });
-  
+
   useEffect(() => {
     schema.isValid(credentials).then((isStateValid) => {
       setButtonDisabled(!isStateValid); 
@@ -56,7 +56,7 @@ const Signup = () => {
   };
 
   const inputChange = (e) => {
-    e.persist();
+    console.log(credentials)
     setCredentials({
       ...credentials,
       [e.target.name]: e.target.value  
@@ -93,12 +93,11 @@ return (
               <h1 className="signup-header">Get started with us today!</h1>
             <div className="input-container">
 
-            <label htmlFor="name">
+            <label htmlFor="user_name">
               <div className="username-input">
                <input
                 className="input"
                 type="text"
-  
                 name="user_username"
                 placeholder="Enter Your username"
                 value={credentials.user_username}
@@ -106,41 +105,39 @@ return (
                 onChange={inputChange}
   
                 />
-                {errors.name.length > 0 ? <p className="error">{errors.name}</p> : null}
+                <p className="error">{errors.user_username}</p>
                 <span className="span-input"></span>
               </div>
             </label>
 
-            <label htmlFor="password">
+            <label htmlFor="user_password">
               <div className="password-input">
                <input
                 className="input"
                 type="password"
                 name="user_password"
                 placeholder="Enter Your password"
-  
                 value={credentials.user_password}
                 onChange={inputChange}
   
                 />
-                 {errors.password.length > 0 ? <p className="error">{errors.password}</p> : null}
+                 <p className="error">{errors.user_password}</p>
                 <span className="spaninput"></span>
               </div>
             </label>
 
-            <label htmlFor="phoneNumber">
+            <label htmlFor="user_phone_number">
               <div className="phonenumber-input">
                <input
                 className="input"
                 type="text"
-  
                 name="user_phone_number"
                 placeholder="Enter Your Phone Number"
                 value={credentials.user_phone_number}
                 onChange={inputChange}
-  
-                />
-                {errors.phoneNumber.length > 0 ? <p className="error">{errors.phoneNumber}</p> : null}
+                  />
+                  
+                <p className="error">{errors.user_phone_number}</p>
                 <span className="spaninput"></span>
               </div>
             </label>
