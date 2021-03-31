@@ -1,5 +1,5 @@
 import plantData from '../plantData'
-import {ADD_PLANT, EDIT_PLANT, DELETE_PLANT, LOADING_PLANTS} from '../actions'
+import {ADD_PLANT, EDIT_PLANT, DELETE_PLANT} from '../actions'
 
 const initialState = {
   plantList: plantData,
@@ -14,7 +14,25 @@ const reducer = (state = initialState, action) => {
     case (ADD_PLANT):
       return ({
         ...state,
-        plantList: [...plantData, action.payload]
+        plantList: [...state.plantList, action.payload]
+      })
+    case (EDIT_PLANT):
+      return ({
+        ...state,
+        plantList: [
+          state.plantList.map(plant => {
+            if (`${plant.id}` === action.payload.id) {
+              return action.payload;
+            }
+            return plant;
+          })
+        ]
+      })
+    case (DELETE_PLANT):
+      return ({
+        ...state,
+        plantList: state.plantList.filter(
+          plant => plant.id !== action.payload.id)
       })
     default:
       return state

@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import "../components/CSS/Dashboard.css";
-// import plantData from '../plantData';
+import { connect } from 'react-redux'
+import {editPlant} from '../actions'
 
 const initialForm = {
+  id: "",
   frequency: "",
   species: "",
   nickname: "",
@@ -10,28 +12,22 @@ const initialForm = {
   image: ""
 }
 
-export default function UpdatePlant({ plantList, setPlantList, plantDetails, setEditForm, id}) {
+const UpdatePlant = (props) => {
+  const {plantDetails, setEditForm, id, editPlant } = props
   
   const [form, setForm] = useState(plantDetails)
 
   const handleChange = (e) => {
       setForm({
-          ...form,
-          [e.target.name]: e.target.value
+        ...form,
+        id: id,
+        [e.target.name]: e.target.value
       })
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(form)
-    setPlantList(
-      plantList.map(plant => {
-        if (`${plant.id}` === id) {
-          return form;
-        }
-        return plant;
-      })
-    )
+    editPlant(form)
     setForm(initialForm)
     setEditForm(false)
   }
@@ -57,3 +53,4 @@ export default function UpdatePlant({ plantList, setPlantList, plantDetails, set
   )
 }
 
+export default connect(null, {editPlant})(UpdatePlant)

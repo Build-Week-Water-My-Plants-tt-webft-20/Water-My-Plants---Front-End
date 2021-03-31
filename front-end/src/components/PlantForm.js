@@ -16,6 +16,7 @@ const PlantForm = (props) => {
   const {addPlant, setDisplayForm, plantList} = props
   const [form, setForm] = useState(initialForm)
 
+
   const handleChange = (e) => {
       setForm({
         ...form,

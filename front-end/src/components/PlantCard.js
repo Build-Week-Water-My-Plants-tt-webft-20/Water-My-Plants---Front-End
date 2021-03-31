@@ -1,8 +1,11 @@
 import React, {useState} from 'react'
 import "../components/CSS/Dashboard.css";
 import UpdatePlant from './UpdatePlant';
+import { connect } from 'react-redux'
+import {deletePlant} from '../actions'
 
-export default function PlantCard({plantDetails, plantList, setPlantList}) {
+const PlantCard = (props) => {
+  const {plantDetails, plantList, deletePlant} = props
   const {species, nickname, diameter, frequency, image, id} = plantDetails
 
   const [editForm, setEditForm] = useState(false)
@@ -11,13 +14,6 @@ export default function PlantCard({plantDetails, plantList, setPlantList}) {
     setEditForm(true)
   }
 
-  const deletePlant = () => {
-    setPlantList(
-      plantList.filter(
-        plant => plant.id !== id
-      )
-    )
-  }
 
   return (
     <div>
@@ -35,7 +31,7 @@ export default function PlantCard({plantDetails, plantList, setPlantList}) {
             Edit
           </div>
 
-          <div className="button" onClick={deletePlant}>
+          <div className="button" onClick={() => deletePlant(id)}>
             Delete
           </div>
         </div>
@@ -43,10 +39,17 @@ export default function PlantCard({plantDetails, plantList, setPlantList}) {
       {editForm && <UpdatePlant
         plantDetails={plantDetails}
         plantList={plantList}
-        setPlantList={setPlantList}
         setEditForm={setEditForm}
         id={id}
       />}
     </div>
   )
 }
+
+const mapStateToProps = state => {
+  return ({
+    plantList: state.plantList
+  })
+}
+
+export default connect(mapStateToProps, {deletePlant})(PlantCard)
