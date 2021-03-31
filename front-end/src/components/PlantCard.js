@@ -14,7 +14,6 @@ const PlantCard = (props) => {
     setEditForm(true)
   }
 
-
   return (
     <div>
       {!editForm && <div className="plant-card">
@@ -37,18 +36,11 @@ const PlantCard = (props) => {
         </div>
       </div>}
       {editForm && <UpdatePlant
-        plantDetails={plantDetails}
         setEditForm={setEditForm}
         id={id}
       />}
     </div>
   )
 }
-
-// const mapStateToProps = state => {
-//   return ({
-//     plantList: state.plantList
-//   })
-// }
 
 export default connect(null, {deletePlant})(PlantCard)

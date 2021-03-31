@@ -13,9 +13,9 @@ const initialForm = {
 }
 
 const UpdatePlant = (props) => {
-  const {plantDetails, setEditForm, id, editPlant } = props
+  const {setEditForm, id, editPlant, plantList } = props
   
-  const [form, setForm] = useState(plantDetails)
+  const [form, setForm] = useState(plantList[id])
 
   const handleChange = (e) => {
       setForm({
@@ -53,4 +53,10 @@ const UpdatePlant = (props) => {
   )
 }
 
-export default connect(null, {editPlant})(UpdatePlant)
+const mapStateToProps = state => {
+  return ({
+    plantList: state.plantList
+  })
+}
+
+export default connect(mapStateToProps, {editPlant})(UpdatePlant)
