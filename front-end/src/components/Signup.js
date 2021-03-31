@@ -56,22 +56,16 @@ const Signup = () => {
   };
 
   const inputChange = (e) => {
-    console.log(credentials)
     setCredentials({
       ...credentials,
-      [e.target.name]: e.target.value  
+      [e.target.name]: e.target.value,
     });
-
-    // Parsing phone number to integer after final change and before submit
-    setCredentials({
-      ...credentials,
-      user_phone_number: parseInt(credentials.user_phone_number)
-    })
 
     handleChange(e);
   };
 
   const handleSubmit = (e) => {
+
     e.preventDefault();
     axios
       .post("", credentials)
