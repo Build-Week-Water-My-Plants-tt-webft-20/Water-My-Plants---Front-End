@@ -2,6 +2,7 @@ import "../components/CSS/Landing.css";
 import plant1 from "../components/images/plant1.PNG";
 import plant2 from "../components/images/plant2.png";
 import plant3b from "../components/images/plant3b.png";
+import { Link } from "react-router-dom";
 
 export default function Landing() {
   return (
@@ -15,10 +16,11 @@ export default function Landing() {
             </span>
           </div>
           <a className="water" href="#">
-            <span className="water-button">Get Started</span>
+            <Link className="waterlink" to="/signup">
+              <span className="water-button">Get Started</span>
+            </Link>
             <div class="liquid"></div>
           </a>
-         
         </div>
 
         <div className="works1">
