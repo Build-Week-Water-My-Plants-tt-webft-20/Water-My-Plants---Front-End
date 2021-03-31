@@ -43,14 +43,13 @@ html {
   height: auto;
 }
 
-span {
+/* span {
   width: 50%;
-
-  font-size: 2.5rem;
+font-size: 2.5rem;
   width: 70%;
   color: #57b846;
   font-size: 25px;
-}
+} */
 
 .middle {
   display: flex;

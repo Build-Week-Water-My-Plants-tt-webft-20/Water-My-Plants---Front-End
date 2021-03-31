@@ -8,7 +8,6 @@
 }
 
 .plant-card {
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -58,12 +57,12 @@ form {
   font-size: 3rem;
 }
 
-form input {  font-family: "Ubuntu";
+form input {
+  font-family: "Ubuntu";
   font-weight: bold;
   font-size: 15px;
   color: #1b3815;
   line-height: 1.2;
-  margin: 1vw;
   position: relative;
   display: block;
   width: 100%;
