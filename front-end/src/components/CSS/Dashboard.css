@@ -7,13 +7,26 @@
   align-items: center;
 }
 
+.dashboard h1 {
+  color: white;
+}
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .plant-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid black;
+  border: 10px solid #57b846;
+  border-radius: 5px;
   width: 20vw;
-  height: auto;
+  height: 70vh;
+  margin: 40px;
+  background: #fff;
 }
 
 .plant-container {
@@ -22,21 +35,11 @@
   justify-content: space-evenly;
 }
 
-.button {
-  color: white;
-  font-weight: bold;
-  font-style: italic;
-  background: #57b846;
-  padding: 10px;
-  margin: 1vw;
-  width: 10vw;
-}
-
 .form-button {
   color: white;
   font-weight: bold;
-  font-style: italic;
   background: #57b846;
+  border-radius: 4px;
   padding: 10px;
   margin: 1vw;
   width: 10vw;
@@ -47,7 +50,20 @@
   height: auto;
   background-color: white;
   border-radius: 5px;
+  border: 10px solid #57b846;
   margin-bottom: 2vw;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.plant-form input {
+  margin: 1vw;
+  border: 1px solid #57b846;
+}
+
+.plant-form button {
+  background: #57b846;
+  color: white;
 }
 
 form {
@@ -61,7 +77,7 @@ form input {
   font-family: "Ubuntu";
   font-weight: bold;
   font-size: 15px;
-  color: #1b3815;
+  color: #57b846;
   line-height: 1.2;
   position: relative;
   display: block;
@@ -89,5 +105,65 @@ form input {
 }
 
 .add:hover {
-  background-color: rgb(27, 56, 21, 0.3);
+  background-color: white;
+  color: #57b846;
+  border: 5px solid #57b846;
+}
+
+/* PlantCard Styles */
+
+.card-header img {
+  width: 50%;
+  height: auto;
+}
+
+.plant-button {
+  color: white;
+  font-weight: bold;
+
+  background: #57b846;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 1vw;
+  width: 10vw;
+}
+
+.plant-card p {
+  color: #469438;
+  text-transform: capitalize;
+}
+
+.plant-card h2 {
+  color: #469438;
+  text-transform: capitalize;
+}
+
+/*UpdatePlant Styles*/
+
+.update-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 10px solid #57b846;
+  border-radius: 5px;
+  width: 20vw;
+  height: 60vh;
+  margin: 40px;
+  background: #fff;
+}
+
+.update-form input {
+  margin: 0.5vw;
+  border: 1px solid #57b846;
+  color: #1b3815;
+}
+
+.update-form button {
+  color: white;
+  font-weight: bold;
+  background: #57b846;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 1vw;
+  width: 10vw;
 }

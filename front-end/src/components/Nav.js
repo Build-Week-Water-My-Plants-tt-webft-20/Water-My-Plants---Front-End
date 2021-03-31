@@ -5,7 +5,7 @@ const NavigationBar = () => {
   return (
     <div className="header">
       <Link to="/" className="title">
-        Water My Plant App
+        WaterMyPlants
       </Link>
 
       {/* NAV BAR LINKS TO ROUTES */}
