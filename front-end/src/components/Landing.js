@@ -2,21 +2,23 @@ import "../components/CSS/Landing.css";
 import plant1 from "../components/images/plant1.PNG";
 import plant2 from "../components/images/plant2.png";
 import plant3b from "../components/images/plant3b.png";
-import logo5 from "../components/images/logo5.PNG";
 
 export default function Landing() {
   return (
     <div className="main">
       <div className="middle">
         <div className="banner">
-          <img className="logotop" src={logo5} alt="" />
-
           <div className="bannertext">
-            <span>
+            <span className="btext">
               WaterMyPlants helps you manage your time, so you can help your
               plants thrive!
             </span>
           </div>
+          <a className="water" href="#">
+            <span className="water-button">Get Started</span>
+            <div class="liquid"></div>
+          </a>
+         
         </div>
 
         <div className="works1">
