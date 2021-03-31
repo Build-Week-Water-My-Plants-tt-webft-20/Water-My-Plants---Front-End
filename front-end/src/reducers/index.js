@@ -19,20 +19,18 @@ const reducer = (state = initialState, action) => {
     case (EDIT_PLANT):
       return ({
         ...state,
-        plantList: [
-          state.plantList.map(plant => {
+        plantList: state.plantList.map(plant => {
             if (`${plant.id}` === action.payload.id) {
               return action.payload;
             }
             return plant;
           })
-        ]
       })
     case (DELETE_PLANT):
       return ({
         ...state,
         plantList: state.plantList.filter(
-          plant => plant.id !== action.payload.id)
+          plant => plant.id !== action.payload)
       })
     default:
       return state

@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import {deletePlant} from '../actions'
 
 const PlantCard = (props) => {
-  const {plantDetails, plantList, deletePlant} = props
+  const {plantDetails, deletePlant} = props
   const {species, nickname, diameter, frequency, image, id} = plantDetails
 
   const [editForm, setEditForm] = useState(false)
@@ -38,7 +38,6 @@ const PlantCard = (props) => {
       </div>}
       {editForm && <UpdatePlant
         plantDetails={plantDetails}
-        plantList={plantList}
         setEditForm={setEditForm}
         id={id}
       />}
@@ -46,10 +45,10 @@ const PlantCard = (props) => {
   )
 }
 
-const mapStateToProps = state => {
-  return ({
-    plantList: state.plantList
-  })
-}
+// const mapStateToProps = state => {
+//   return ({
+//     plantList: state.plantList
+//   })
+// }
 
-export default connect(mapStateToProps, {deletePlant})(PlantCard)
+export default connect(null, {deletePlant})(PlantCard)
