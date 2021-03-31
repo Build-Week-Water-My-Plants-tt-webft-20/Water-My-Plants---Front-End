@@ -3,34 +3,40 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import "../components/CSS/SignUp.css";
 
-const Signup = (props) => {
-    const [values, setValues] = useState({
-        username: "",
-        password: "",
-        phoneNumber: "",
-    });
+const emptyCredentials = {
+  user_username: "",
+  user_password: "",
+  user_phone_number: "",
+}
+
+const Signup = () => {
+    const [credentials, setCredentials] = useState(emptyCredentials);
 
     const { push } = useHistory();
 
-    const handleChange = (e) => {
-        console.log(e.target.name, ":", e.target.value);
-        setValues({
-            ...values,
-            [e.target.name]: e.target.value,
+  const handleChange = (e) => {
+        setCredentials({
+          ...credentials,
+          [e.target.name]: e.target.value  
         });
+    
+        // Parsing phone number to integer after final change and before submit
+        setCredentials({
+          ...credentials,
+          user_phone_number: parseInt(credentials.user_phone_number)
+        })
     };
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        push("/login");
-
+      e.preventDefault();
         axios
-            .post("", values)
+            .post("https://water-my-plants-back-end.herokuapp.com/api/auth/register", credentials)
             .then((res) => {
-                console.log(res, "res inside handleSubmit signup form");
+              console.log(res, "res inside handleSubmit signup form");
+              push('/login')
             })
             .catch((err) => {
-                console.log(err, "error in signing up form ");
+                console.log(err, "error in sign up form ");
             });
     };
 
@@ -38,7 +44,7 @@ return (
     <div className="signup">
       <div className="signup-container">
         <div className="wrap-signup">
-          <form className="signup-form">
+          <div className="signup-form">
             <form onSubmit={handleSubmit}>
               <h1 className="signup-header">Get started with us today!</h1>
             <div className="input-container">
@@ -46,9 +52,9 @@ return (
                <input
                 className="input"
                 type="text"
-                name="username"
+                name="user_username"
                 placeholder="Enter Your username"
-                value={values.username}
+                value={credentials.user_username}
                 onChange={handleChange}
                 />
                 <span className="span-input"></span>
@@ -58,9 +64,9 @@ return (
                <input
                 className="input"
                 type="password"
-                name="password"
+                name="user_password"
                 placeholder="Enter Your password"
-                value={values.password}
+                value={credentials.user_password}
                 onChange={handleChange}
                 />
                 <span className="spaninput"></span>
@@ -70,9 +76,9 @@ return (
                <input
                 className="input"
                 type="text"
-                name="phoneNumber"
+                name="user_phone_number"
                 placeholder="Enter Your Phone Number"
-                value={values.phoneNumber}
+                value={credentials.user_phone_number}
                 onChange={handleChange}
                 />
                 <span className="spaninput"></span>
@@ -82,7 +88,7 @@ return (
             <button className="signup-form-btn" type="submit">Sign Up</button>
             </div>
             </form>
-          </form>
+          </div>
         </div>
       </div>
     </div>
