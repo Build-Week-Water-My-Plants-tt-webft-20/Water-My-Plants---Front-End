@@ -1,8 +1,11 @@
-import React, { useState } from "react";
-// import { useHistory, } from 'react-router-dom'
+import React, { useState } from 'react'
+import { connect } from 'react-redux'
+import {addPlant} from '../actions'
+
 import "../components/CSS/Dashboard.css";
 
 const initialForm = {
+  id: "",
   frequency: "",
   species: "",
   nickname: "",
@@ -10,28 +13,25 @@ const initialForm = {
   image: "",
 };
 
-export default function PlantForm({ setDisplayForm, plantList, setPlantList }) {
-  const [form, setForm] = useState(initialForm);
-
-  // const { push } = useHistory();
-
-  // useEffect(() => {
-  // }, [])
+const PlantForm = (props) => {
+  const {addPlant, setDisplayForm, plantList} = props
+  const [form, setForm] = useState(initialForm)
 
   const handleChange = (e) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value,
-    });
-  };
+      setForm({
+        ...form,
+        id: plantList.length.toString(),
+          [e.target.name]: e.target.value
+      })
+  }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    setPlantList([...plantList, form]);
-    setForm(initialForm);
-    setDisplayForm(false);
-  };
-
+    e.preventDefault()
+    addPlant(form)
+    setForm(initialForm)
+    setDisplayForm(false)
+  }
+  
   return (
     <div className="plant-form">
       <form onSubmit={handleSubmit}>
@@ -82,3 +82,12 @@ export default function PlantForm({ setDisplayForm, plantList, setPlantList }) {
     </div>
   );
 }
+
+const mapStateToProps = state => {
+  return ({
+    plantList: state.plantList
+  })
+}
+
+export default connect(mapStateToProps, {addPlant})(PlantForm)
+

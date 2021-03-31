@@ -1,18 +1,12 @@
-import React, { useState, useEffect } from "react";
-import PlantCard from "./PlantCard";
-import plantData from "../plantData";
-import PlantForm from "./PlantForm";
+import React, { useState } from 'react'
+import { connect } from 'react-redux'
+import PlantCard from './PlantCard'
+import PlantForm from './PlantForm'
 import "../components/CSS/Dashboard.css";
 
-const initialList = [];
-
-export default function Dashboard() {
-  const [plantList, setPlantList] = useState(initialList);
-  const [displayForm, setDisplayForm] = useState(false);
-
-  useEffect(() => {
-    setPlantList(plantData);
-  }, []);
+const Dashboard = (props) => {
+  const {plantList} = props
+  const [displayForm, setDisplayForm] = useState(false)
 
   const openForm = () => {
     setDisplayForm(true);
@@ -24,7 +18,8 @@ export default function Dashboard() {
 
   return (
     <div className="dashboard">
-      <h1>My Plants</h1>
+      <h1>My Plants </h1>
+    
       {!displayForm && (
         <div className="form-button" onClick={openForm}>
           Add Plant
@@ -40,6 +35,7 @@ export default function Dashboard() {
       {displayForm && (
         <PlantForm
           setDisplayForm={setDisplayForm}
+        />}
           plantList={plantList}
           setPlantList={setPlantList}
         />
@@ -52,15 +48,19 @@ export default function Dashboard() {
               <PlantCard
                 key={plant.id}
                 plantDetails={plant}
-                plantList={plantList}
-                setPlantList={setPlantList}
               />
             );
           })}
         </div>
       </div>
-
-      
     </div>
   );
 }
+
+const mapStateToProps = state => {
+  return ({
+    plantList: state.plantList
+  })
+}
+
+export default connect(mapStateToProps, null)(Dashboard)

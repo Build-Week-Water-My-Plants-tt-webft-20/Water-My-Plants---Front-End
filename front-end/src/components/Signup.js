@@ -3,26 +3,28 @@ import axios from "axios";
 import * as yup from "yup";
 import "../components/CSS/SignUp.css";
 
-export default function Signup() { 
+const emptyCredentials = {
+  user_username: "",
+  user_password: "",
+  user_phone_number: "",
+}
 
-    const [state, setState] = useState({
-        name: "",
-        password: "",
-        phoneNumber: "",
-    });
+const Signup = () => {
+    const [credentials, setCredentials] = useState(emptyCredentials);
 
-    const [users, setUsers] = useState();
+  const handleChange = (e) => 
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    axios
-      .post("https://reqres.in/api/users", state)
-      .then((response) => {
-        setUsers(response.data);
-      })
-      .catch((err) => console.log("error!"));
-  };
-
+    const handleSubmit = (e) => {
+      e.preventDefault();
+        axios
+            .post("", credentials)
+            .then((res) => {
+              console.log(res, "res inside handleSubmit signup form");
+              push('/login')
+            })
+            .catch((err) => {
+                console.log(err, "error in sign up form ");
+            });
     const handleChange = (e) => {
       yup
       .reach(schema, e.target.name)
@@ -43,12 +45,16 @@ export default function Signup() {
 
   const inputChange = (e) => {
     e.persist();
-    const newData = {
-      ...state,
-      [e.target.name]:
-        e.target.name === ""
-          ? e.target.checked
-          : e.target.value,
+    setCredentials({
+      ...credentials,
+      [e.target.name]: e.target.value  
+    });
+
+    // Parsing phone number to integer after final change and before submit
+    setCredentials({
+      ...credentials,
+      user_phone_number: parseInt(credentials.user_phone_number)
+    })
     };
     handleChange(e);
     setState(newData);
@@ -80,7 +86,7 @@ return (
     <div className="signup">
       <div className="signup-container">
         <div className="wrap-signup">
-          <form className="signup-form">
+          <div className="signup-form">
             <form onSubmit={handleSubmit}>
               <h1 className="signup-header">Get started with us today!</h1>
             <div className="input-container">
@@ -90,11 +96,13 @@ return (
                <input
                 className="input"
                 type="text"
-                id="username"
-                name="name"
+  
+                name="user_username"
                 placeholder="Enter Your username"
-                value={state.name}
+                value={credentials.user_username}
+                id="username"
                 onChange={inputChange}
+  
                 />
                 {errors.name.length > 0 ? <p className="error">{errors.name}</p> : null}
                 <span className="span-input"></span>
@@ -106,10 +114,12 @@ return (
                <input
                 className="input"
                 type="password"
-                name="password"
+                name="user_password"
                 placeholder="Enter Your password"
-                value={state.password}
+  
+                value={credentials.user_password}
                 onChange={inputChange}
+  
                 />
                  {errors.password.length > 0 ? <p className="error">{errors.password}</p> : null}
                 <span className="spaninput"></span>
@@ -121,10 +131,12 @@ return (
                <input
                 className="input"
                 type="text"
-                name="phoneNumber"
-                placeholder="Enter a phone number"
-                value={state.phoneNumber}
+  
+                name="user_phone_number"
+                placeholder="Enter Your Phone Number"
+                value={credentials.user_phone_number}
                 onChange={inputChange}
+  
                 />
                 {errors.phoneNumber.length > 0 ? <p className="error">{errors.phoneNumber}</p> : null}
                 <span className="spaninput"></span>
@@ -138,7 +150,7 @@ return (
 
             </div>
             </form>
-          </form>
+          </div>
         </div>
       </div>
     </div>

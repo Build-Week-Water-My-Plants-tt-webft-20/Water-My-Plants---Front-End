@@ -1,6 +1,6 @@
 const plantData = [
   {
-    id: "001",
+    id: "1",
     frequency: "shrub",
     species: "Hibiscus",
     nickname: "Henrietta",
@@ -8,7 +8,7 @@ const plantData = [
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT66kBCJQb6rlqtcw5OnJnZbKPsT8e23I-yVg&usqp=CAU"
   },
   {
-    id: "002",
+    id: "2",
     frequency: "ground cover",
     species: "Astrophytum",
     nickname: "Pear",
@@ -16,7 +16,7 @@ const plantData = [
     image: "https://cdn.shopify.com/s/files/1/0968/5384/products/3ec32ced-0361-5ad7-a920-28e867d17118_1800x1800.jpg?v=1569270748"
   },
   {
-    id: "003",
+    id: "3",
     frequency: "ground cover",
     species: "Bunchberry",
     nickname: "Fruitloop",
@@ -24,7 +24,7 @@ const plantData = [
     image: "https://www.gardenia.net/storage/app/public/uploads/images/detail/jNHWjDt2fLFwiGOT9LLf4tF9t6OvoO5EqNydyvge.jpeg"
   },
   {
-    id: "004",
+    id: "4",
     frequency: "shrub",
     species: "Forsythia",
     nickname: "Bill",
@@ -32,7 +32,7 @@ const plantData = [
     image: "https://www.thespruce.com/thmb/Of-Qn-UHIXEqr44x3ppLg20Ia60=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/forsythia-bushes-plants-that-herald-spring-2131177-06-555249d55dd3490e9febf095ec322a1f.jpg"
   },
   {
-    id: "005",
+    id: "5",
     frequency: "tree",
     species: "Maple",
     nickname: "Syrup",

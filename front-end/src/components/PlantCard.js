@@ -1,27 +1,35 @@
 import React, { useState } from "react";
 import "../components/CSS/Dashboard.css";
-import UpdatePlant from "./UpdatePlant";
+import UpdatePlant from './UpdatePlant';
+import { connect } from 'react-redux'
+import {deletePlant} from '../actions'
 
-export default function PlantCard({ plantDetails, plantList, setPlantList }) {
-  const { species, nickname, diameter, frequency, image, id } = plantDetails;
+const PlantCard = (props) => {
+  const {plantDetails, deletePlant} = props
+  const {species, nickname, diameter, frequency, image, id} = plantDetails
+
 
   const [editForm, setEditForm] = useState(false);
 
-  const editPlant = () => {
-    setEditForm(true);
-  };
-
-  const deletePlant = () => {
-    setPlantList(plantList.filter((plant) => plant.id !== id));
-  };
+  const displayForm = () => {
+    setEditForm(true)
+  }
 
   return (
     <div>
-      {!editForm && (
-        <div className="plant-card">
-          <div className="card-header">
-            <h2>{nickname}</h2>
-            <img src={image} alt={species} />
+      {!editForm && <div className="plant-card">
+        <div className="card-header">
+          <h2>{nickname}</h2>
+          <img src={image} alt={species}/>
+        </div>
+        <p>{frequency}</p>
+        <p>{species}</p>
+        <p>{diameter}</p>
+
+        <div className="crud-buttons">
+          <div className="button" onClick={displayForm}>
+            Edit
+
           </div>
           Type:
           <p>{frequency}</p>
@@ -34,21 +42,19 @@ export default function PlantCard({ plantDetails, plantList, setPlantList }) {
               Edit
             </div>
 
-            <div className="plant-button" onClick={deletePlant}>
-              Delete
-            </div>
+          <div className="button" onClick={() => deletePlant(id)}>
+            Delete
           </div>
         </div>
-      )}
-      {editForm && (
-        <UpdatePlant
-          plantDetails={plantDetails}
-          plantList={plantList}
-          setPlantList={setPlantList}
-          setEditForm={setEditForm}
-          id={id}
-        />
-      )}
+      </div>}
+      
+      {editForm && <UpdatePlant
+        setEditForm={setEditForm}
+        id={id}
+      />}
     </div>
-  );
+  )
 }
+
+export default connect(null, {deletePlant})(PlantCard)
+
