@@ -11,13 +11,7 @@ export default function PlantCard({plantDetails, plantList, setPlantList}) {
     setEditForm(true)
   }
 
-  const deletePlant = () => {
-    setPlantList(
-      plantList.filter(
-        plant => plant.id !== id
-      )
-    )
-  }
+  const deletePlant = () => {}
 
   return (
     <div>
