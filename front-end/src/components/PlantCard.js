@@ -12,7 +12,11 @@ export default function PlantCard({plantDetails, plantList, setPlantList}) {
   }
 
   const deletePlant = () => {
-    
+    setPlantList(
+      plantList.filter(
+        plant => plant.id !== id
+      )
+    )
   }
 
   return (
