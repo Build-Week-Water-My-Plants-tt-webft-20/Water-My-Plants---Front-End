@@ -24,7 +24,6 @@ const Dashboard = (props) => {
           return <PlantCard
             key={plant.id}
             plantDetails={plant}
-            plantList={plantList}
           />
         })}
       </div>
