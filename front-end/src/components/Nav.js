@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const NavigationBar = () => {
-
   return (
     <div className="header">
       <Link to="/" className="title">
@@ -12,8 +11,7 @@ const NavigationBar = () => {
       {/* NAV BAR LINKS TO ROUTES */}
       <nav className="nav-links">
         <Link className="nav-link" to="/signup">
-          Sign Up!
-
+          Sign Up
         </Link>
 
         <Link className="nav-link" to="/login">

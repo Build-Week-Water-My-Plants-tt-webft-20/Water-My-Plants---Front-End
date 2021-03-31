@@ -1,29 +1,25 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
 .title {
+  font-family: "Ubuntu";
   margin: 6px 20px 6px;
   font-size: 3.5rem;
   text-decoration: none;
-  color:#57b846;
-  text-shadow: 2px 2px 0px white;
-}
-
-.title:hover {
-  transform: scale(1.2);
-  transition: all 2s ease-in-out;
-  cursor: pointer;
+  color: white;
+  letter-spacing: 5px;
+  text-shadow: -1px -1px 0px #469438, 3px 3px 0px #469438, 6px 6px 0px #57b846;
 }
 
 /* Header for nav */
@@ -33,6 +29,7 @@ code {
   flex-direction: column;
   align-content: center;
   justify-content: space-between;
+  background-color: #469438;
 }
 
 /* Nav Links style */
@@ -46,25 +43,26 @@ code {
 }
 
 .nav-link {
+  width: 12em;
+  height: 3em;
+  text-align: center;
+  letter-spacing: 0.1em;
   text-decoration: none;
+  border: 0.3em solid white;
+  border-radius: 5px;
   color: white;
   font-weight: bold;
-  font-style: italic;
-  background: #57b846;
-  padding: 10px;
-  margin: 0;
+  font-size: 16px;
+  text-transform: uppercase;
+  background: #469438;
+  padding: 20px;
+  padding-bottom: 50px;
+  position: relative;
 }
 
 .nav-link:hover {
-  transform: scale(1.2);
-  transition: all 1s ease-in-out;
   cursor: pointer;
-  text-decoration: underline;
-  background: repeating-linear-gradient(
-    45deg,
-    #469438,
-    #469438 10px,
-    #57b846 10px,
-    #57b846 20px
-  );
+
+  background: white;
+  color: #469438;
 }
