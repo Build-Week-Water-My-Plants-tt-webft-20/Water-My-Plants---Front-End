@@ -3,6 +3,7 @@ import axios from "axios";
 import * as yup from "yup";
 import "../components/CSS/SignUp.css";
 import {useHistory} from 'react-router-dom'
+import { connect } from "react-redux";
 
 const emptyCredentials = {
   user_username: "",
@@ -23,18 +24,18 @@ const Signup = () => {
   const [buttonDisabled, setButtonDisabled] = useState(true);
   const [errors, setErrors] = useState(initialErrors);
   const { push } = useHistory()
-  
-  useEffect(() => {
-    schema.isValid(credentials).then((isStateValid) => {
-      setButtonDisabled(!isStateValid); 
-    });
-  }, [schema, credentials]);
 
   const schema = yup.object().shape({
     name: yup.string().required("Name is a required field."),
     password: yup.string().required("Password is required!"),
     phoneNumber: yup.string().matches(RegExpress, 'Phone number is not valid'),
   });
+  
+  useEffect(() => {
+    schema.isValid(credentials).then((isStateValid) => {
+      setButtonDisabled(!isStateValid); 
+    });
+  }, [schema, credentials]);
     
   const handleChange = (e) => {
     yup
@@ -52,7 +53,7 @@ const Signup = () => {
         [e.target.name]: err.errors[0],
       });
     });
-};
+  };
 
   const inputChange = (e) => {
     e.persist();
@@ -66,7 +67,7 @@ const Signup = () => {
       ...credentials,
       user_phone_number: parseInt(credentials.user_phone_number)
     })
-    };
+
     handleChange(e);
   };
 
@@ -146,7 +147,7 @@ return (
 
             <div className="btn-container">    
             <button className="signup-form-btn" type="submit" disabled={buttonDisabled}>Sign Up</button>
-            <pre>{JSON.stringify(users, null, 2)}</pre>
+            {/* <pre>{JSON.stringify(users, null, 2)}</pre> */}
             </div>
 
             </div>
@@ -157,3 +158,5 @@ return (
     </div>
     );
 }
+
+export default connect(null)(Signup)
