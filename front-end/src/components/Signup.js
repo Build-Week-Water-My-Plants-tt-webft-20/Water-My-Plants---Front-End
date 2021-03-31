@@ -56,19 +56,22 @@ const Signup = () => {
   };
 
   const inputChange = (e) => {
+    let value = e.target.value
+    if (e.target.name === "user_phone_number") {
+      value = parseInt(value)
+    }
     setCredentials({
       ...credentials,
-      [e.target.name]: e.target.value,
+      [e.target.name]: value,
     });
-
     handleChange(e);
   };
 
   const handleSubmit = (e) => {
-
     e.preventDefault();
+    console.log(credentials)
     axios
-      .post("", credentials)
+      .post("https://water-my-plants-back-end.herokuapp.com/api/auth/register", credentials)
       .then((res) => {
         console.log(res, "res inside handleSubmit signup form");
         push('/login')

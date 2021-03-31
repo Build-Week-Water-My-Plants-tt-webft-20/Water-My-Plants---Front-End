@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-// import axios from "axios";
+import axios from "axios";
 import {useHistory} from 'react-router-dom'
 import "../components/CSS/Login.css";
 
 const emptyCredentials = {
-  username: "",
-  password: "",
+  user_username: "",
+  user_password: "",
 };
 
 export default function Login(props) {
@@ -22,18 +22,15 @@ export default function Login(props) {
   const login = (e) => {
     e.preventDefault();
 
-    // Setting test token to display private routes
-    localStorage.setItem("token", "test-token");
-
-    // axios
-    //   .post("", credentials)
-    //   .then((res) => {
-    //     localStorage.setItem("token", res.data);
-    //   })
-    //   .then(() => {
-    //     props.history.push("/");
-    //   })
-    //   .catch((err) => console.log(err));
+    axios
+      .post("https://water-my-plants-back-end.herokuapp.com/api/auth/login", credentials)
+      .then((res) => {
+        localStorage.setItem('token', res.data.token)
+      })
+      .then(() => {
+        props.history.push("/dashboard");
+      })
+      .catch((err) => console.log(err));
 
     history.push('/dashboard')
   };
@@ -49,9 +46,9 @@ export default function Login(props) {
               <input
                 className="input"
                 type="text"
-                name="username"
+                name="user_username"
                 placeholder="Username"
-                value={credentials.username}
+                value={credentials.user_username}
                 onChange={onChange}
               />
               <span className="spaninput"></span>
@@ -61,9 +58,9 @@ export default function Login(props) {
               <input
                 className="input"
                 type="password"
-                name="password"
+                name="user_password"
                 placeholder="Password"
-                value={credentials.password}
+                value={credentials.user_password}
                 onChange={onChange}
               />
               <br></br>
