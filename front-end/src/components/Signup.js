@@ -30,7 +30,7 @@ const Signup = () => {
     const handleSubmit = (e) => {
       e.preventDefault();
         axios
-            .post("https://water-my-plants-back-end.herokuapp.com/api/auth/register", credentials)
+            .post("", credentials)
             .then((res) => {
               console.log(res, "res inside handleSubmit signup form");
               push('/login')
