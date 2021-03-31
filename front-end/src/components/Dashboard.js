@@ -1,4 +1,5 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
+import { connect } from 'react-redux'
 import PlantCard from './PlantCard'
 import plantData from '../plantData'
 import PlantForm from './PlantForm'
@@ -6,7 +7,7 @@ import "../components/CSS/Dashboard.css";
 
 const initialList = []
 
-export default function Dashboard() {
+const Dashboard = () => {
   const [plantList, setPlantList] = useState(initialList)
   const [displayForm, setDisplayForm] = useState(false)
 
@@ -47,9 +48,9 @@ export default function Dashboard() {
       {displayForm &&
         <PlantForm 
           setDisplayForm={setDisplayForm}
-          plantList={plantList}
-          setPlantList={setPlantList}
         />}
     </div>
   )
 }
+
+export default connect(null, null)(Dashboard)
