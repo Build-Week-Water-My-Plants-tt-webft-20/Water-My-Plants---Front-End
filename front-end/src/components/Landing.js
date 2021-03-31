@@ -15,7 +15,7 @@ export default function Landing() {
               plants thrive!
             </span>
           </div>
-          <a className="water" href="#">
+          <a className="water" href="/signup">
             <Link className="waterlink" to="/signup">
               <span className="water-button">Get Started</span>
             </Link>
