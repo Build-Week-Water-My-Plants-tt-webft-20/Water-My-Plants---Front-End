@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import {addPlant} from '../actions'
+
 import "../components/CSS/Dashboard.css";
 
 const initialForm = {
@@ -9,13 +10,12 @@ const initialForm = {
   species: "",
   nickname: "",
   diameter: "",
-  image: ""
-}
+  image: "",
+};
 
 const PlantForm = (props) => {
   const {addPlant, setDisplayForm, plantList} = props
   const [form, setForm] = useState(initialForm)
-
 
   const handleChange = (e) => {
       setForm({
@@ -35,22 +35,52 @@ const PlantForm = (props) => {
   return (
     <div className="plant-form">
       <form onSubmit={handleSubmit}>
+        <input
+          name="frequency"
+          type="text"
+          value={form.frequency}
+          onChange={handleChange}
+          placeholder="Frequency"
+        />
 
-        <input name="frequency" type="text" value={form.frequency} onChange={handleChange} placeholder="Frequency" />
+        <input
+          name="species"
+          type="text"
+          value={form.species}
+          onChange={handleChange}
+          placeholder="Species"
+        />
 
-        <input name="species" type="text" value={form.species} onChange={handleChange} placeholder="Species" />
+        <input
+          name="nickname"
+          type="text"
+          value={form.nickname}
+          onChange={handleChange}
+          placeholder="Nickname"
+        />
 
-        <input name="nickname" type="text" value={form.nickname} onChange={handleChange} placeholder="Nickname" />
+        <input
+          name="diameter"
+          type="text"
+          value={form.diameter}
+          onChange={handleChange}
+          placeholder="Diameter"
+        />
 
-        <input name="diameter" type="text" value={form.diameter} onChange={handleChange} placeholder="Diameter" />
+        <input
+          name="image"
+          type="text"
+          value={form.image}
+          onChange={handleChange}
+          placeholder="Image URL"
+        />
 
-        <input name="image" type="text" value={form.image} onChange={handleChange} placeholder="Image URL" />
-
-        <button className="add" type="submit">add</button>
-
+        <button className="add" type="submit">
+          Add
+        </button>
       </form>
     </div>
-  )
+  );
 }
 
 const mapStateToProps = state => {
@@ -60,3 +90,4 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, {addPlant})(PlantForm)
+

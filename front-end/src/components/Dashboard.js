@@ -9,39 +9,52 @@ const Dashboard = (props) => {
   const [displayForm, setDisplayForm] = useState(false)
 
   const openForm = () => {
-    setDisplayForm(true)
-  }
+    setDisplayForm(true);
+  };
 
   const closeForm = () => {
-    setDisplayForm(false)
-  }
+    setDisplayForm(false);
+  };
 
   return (
     <div className="dashboard">
-      <h1>My Plants</h1>
-      <div className="plant-container">
-        {plantList.map(plant => {
-          return <PlantCard
-            key={plant.id}
-            plantDetails={plant}
-          />
-        })}
-      </div>
+      <h1>My Plants </h1>
+    
+      {!displayForm && (
+        <div className="form-button" onClick={openForm}>
+          Add Plant
+        </div>
+      )}
 
-      {!displayForm && <div className="form-button" onClick={openForm}>
-        Add Plant
-      </div>}
+      {displayForm && (
+        <div className="form-button" onClick={closeForm}>
+          Close
+        </div>
+      )}
 
-      {displayForm && <div className="form-button" onClick={closeForm}>
-        Close
-      </div>}
-
-      {displayForm &&
-        <PlantForm 
+      {displayForm && (
+        <PlantForm
           setDisplayForm={setDisplayForm}
         />}
+          plantList={plantList}
+          setPlantList={setPlantList}
+        />
+      )}
+      {/* plant card */}
+      <div className="main-container">
+        <div className="plant-container">
+          {plantList.map((plant) => {
+            return (
+              <PlantCard
+                key={plant.id}
+                plantDetails={plant}
+              />
+            );
+          })}
+        </div>
+      </div>
     </div>
-  )
+  );
 }
 
 const mapStateToProps = state => {

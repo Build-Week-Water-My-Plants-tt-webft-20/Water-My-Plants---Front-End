@@ -168,7 +168,7 @@ button:hover {
 
   transform: translateX(-50%);
   border-radius: 31px;
-  background-color: #6d6b6b;
+  background-color: transparent;
   pointer-events: none;
   transition: all 0.4s;
 }
