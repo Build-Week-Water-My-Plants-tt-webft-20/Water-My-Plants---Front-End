@@ -88,5 +88,3 @@ return (
     </div>
     );
 };
-
-export default Signup;
