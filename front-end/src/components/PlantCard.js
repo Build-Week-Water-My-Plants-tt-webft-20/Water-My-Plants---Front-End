@@ -10,7 +10,7 @@ const PlantCard = (props) => {
 
   const [editForm, setEditForm] = useState(false)
 
-  const editPlant = () => {
+  const displayForm = () => {
     setEditForm(true)
   }
 
@@ -26,7 +26,7 @@ const PlantCard = (props) => {
         <p>{diameter}</p>
 
         <div className="crud-buttons">
-          <div className="button" onClick={editPlant}>
+          <div className="button" onClick={displayForm}>
             Edit
           </div>
 
@@ -35,6 +35,7 @@ const PlantCard = (props) => {
           </div>
         </div>
       </div>}
+      
       {editForm && <UpdatePlant
         setEditForm={setEditForm}
         id={id}
