@@ -35,9 +35,7 @@ const Dashboard = (props) => {
       {displayForm && (
         <PlantForm
           setDisplayForm={setDisplayForm}
-        />}
           plantList={plantList}
-          setPlantList={setPlantList}
         />
       )}
       {/* plant card */}

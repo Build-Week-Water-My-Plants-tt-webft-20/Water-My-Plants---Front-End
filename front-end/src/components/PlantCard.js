@@ -17,28 +17,19 @@ const PlantCard = (props) => {
 
   return (
     <div>
-      {!editForm && <div className="plant-card">
-        <div className="card-header">
-          <h2>{nickname}</h2>
-          <img src={image} alt={species}/>
-        </div>
-        <p>{frequency}</p>
-        <p>{species}</p>
-        <p>{diameter}</p>
-
-        <div className="crud-buttons">
-          <div className="button" onClick={displayForm}>
-            Edit
-
+      {!editForm && 
+        <div className="plant-card">
+          <div className="card-header">
+            <h2>{nickname}</h2>
+            <img src={image} alt={species} />
           </div>
-          Type:
-          <p>{frequency}</p>
-          Species:
-          <p>{species}</p>
-          Diameter:
-          <p>{diameter}</p>
+          
+          <p>Type: {frequency}</p>
+          <p>Species: {species}</p>
+          <p>Diameter: {diameter}</p>
+
           <div className="crud-buttons">
-            <div className="plant-button" onClick={editPlant}>
+            <div className="plant-button" onClick={displayForm}>
               Edit
             </div>
 

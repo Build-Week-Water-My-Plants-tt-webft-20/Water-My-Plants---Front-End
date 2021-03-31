@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import * as yup from "yup";
 import "../components/CSS/SignUp.css";
+import {useHistory} from 'react-router-dom'
 
 const emptyCredentials = {
   user_username: "",
@@ -9,39 +10,49 @@ const emptyCredentials = {
   user_phone_number: "",
 }
 
+const initialErrors = {
+  name: "", 
+  password: "",
+  phoneNumber: "",
+}
+
+const RegExpress = /^[/+]?[(]?[0-9]{3}[)]?[-\s/.]?[0-9]{3}[-\s/.]?[0-9]{4,6}$/;
+
 const Signup = () => {
-    const [credentials, setCredentials] = useState(emptyCredentials);
+  const [credentials, setCredentials] = useState(emptyCredentials);
+  const [buttonDisabled, setButtonDisabled] = useState(true);
+  const [errors, setErrors] = useState(initialErrors);
+  const { push } = useHistory()
+  
+  useEffect(() => {
+    schema.isValid(credentials).then((isStateValid) => {
+      setButtonDisabled(!isStateValid); 
+    });
+  }, [schema, credentials]);
 
-  const handleChange = (e) => 
-
-    const handleSubmit = (e) => {
-      e.preventDefault();
-        axios
-            .post("", credentials)
-            .then((res) => {
-              console.log(res, "res inside handleSubmit signup form");
-              push('/login')
-            })
-            .catch((err) => {
-                console.log(err, "error in sign up form ");
-            });
-    const handleChange = (e) => {
-      yup
-      .reach(schema, e.target.name)
-      .validate(e.target.value) 
-      .then(() => {
-        setErrors({
-          ...errors,
-          [e.target.name]: "",
-        });
-      })
-      .catch((err) => {
-        setErrors({
-          ...errors,
-          [e.target.name]: err.errors[0],
-        });
+  const schema = yup.object().shape({
+    name: yup.string().required("Name is a required field."),
+    password: yup.string().required("Password is required!"),
+    phoneNumber: yup.string().matches(RegExpress, 'Phone number is not valid'),
+  });
+    
+  const handleChange = (e) => {
+    yup
+    .reach(schema, e.target.name)
+    .validate(e.target.value) 
+    .then(() => {
+      setErrors({
+        ...errors,
+        [e.target.name]: "",
       });
-  };
+    })
+    .catch((err) => {
+      setErrors({
+        ...errors,
+        [e.target.name]: err.errors[0],
+      });
+    });
+};
 
   const inputChange = (e) => {
     e.persist();
@@ -57,30 +68,20 @@ const Signup = () => {
     })
     };
     handleChange(e);
-    setState(newData);
   };
 
-  const [buttonDisabled, setButtonDisabled] = useState();
-
-  const [errors, setErrors] = useState({
-    name: "", 
-    password: "",
-    phoneNumber: "",
-  });
-
-  const RegExpress = /^[/+]?[(]?[0-9]{3}[)]?[-\s/.]?[0-9]{3}[-\s/.]?[0-9]{4,6}$/;
-
-  const schema = yup.object().shape({
-    name: yup.string().required("Name is a required field."),
-    password: yup.string().required("Password is required!"),
-    phoneNumber: yup.string().matches(RegExpress, 'Phone number is not valid'),
-  });
-
-  useEffect(() => {
-    schema.isValid(state).then((isStateValid) => {
-      setButtonDisabled(!isStateValid); 
-    });
-  }, [schema, state]);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .post("", credentials)
+      .then((res) => {
+        console.log(res, "res inside handleSubmit signup form");
+        push('/login')
+      })
+      .catch((err) => {
+        console.log(err, "error in sign up form ");
+      })
+  }
 
 return (
     <div className="signup">
