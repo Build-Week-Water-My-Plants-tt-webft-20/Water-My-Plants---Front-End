@@ -12,6 +12,7 @@
 }
 
 .main-container {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,12 +25,14 @@
   border: 10px solid #57b846;
   border-radius: 5px;
   width: 20vw;
-  height: 70vh;
+  min-width: 240px;
+  height: auto;
   margin: 40px;
   background: #fff;
 }
 
 .plant-container {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -43,10 +46,12 @@
   padding: 10px;
   margin: 1vw;
   width: 10vw;
+  min-width: 96px;
 }
 
 .plant-form {
   width: 30vw;
+  min-width: 240px;
   height: auto;
   background-color: white;
   border-radius: 5px;
@@ -85,7 +90,7 @@ form input {
   height: 55px;
   background: #ebebeb;
   border-radius: 27px;
-  padding: 0 35px 0 35px;
+  padding: 0 27px 0 27px;
 }
 
 .add {
@@ -98,10 +103,11 @@ form input {
   position: relative;
   display: block;
   width: 30%;
+  min-width: 96px;
   height: 55px;
   background: #ebebeb;
   border-radius: 27px;
-  padding: 0 35px 0 35px;
+  padding: 0 27px 0 27px;
 }
 
 .add:hover {
@@ -126,11 +132,13 @@ form input {
   padding: 10px;
   margin: 1vw;
   width: 10vw;
+  min-width: 96px;
 }
 
 .plant-card p {
   color: #469438;
   text-transform: capitalize;
+  font-size: 1.25rem;
 }
 
 .plant-card h2 {
@@ -147,7 +155,8 @@ form input {
   border: 10px solid #57b846;
   border-radius: 5px;
   width: 20vw;
-  height: 60vh;
+  min-width: 240px;
+  height: auto;
   margin: 40px;
   background: #fff;
 }
@@ -166,4 +175,16 @@ form input {
   padding: 10px;
   margin: 1vw;
   width: 10vw;
+  min-width: 96px;
 }
+
+@media (max-width: 960px) {
+  .plant-card {
+    margin: 2vw;
+  }
+
+  .update-form {
+    margin: 2vw;
+  }
+}
+
