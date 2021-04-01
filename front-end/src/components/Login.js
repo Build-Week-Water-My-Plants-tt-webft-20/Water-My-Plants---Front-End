@@ -40,7 +40,7 @@ export default function Login(props) {
       <div className="login-container">
         <div className="wrap-login">
           <form className="login-form" onSubmit={login}>
-            <span className="login-form-title">Sign In</span>
+            <span className="login-form-title">Log In:</span>
 
             <div className="username-input">
               <input
@@ -68,14 +68,14 @@ export default function Login(props) {
 
 
             <div className="btn-container">
-              <button type="submit" className="login-form-btn">Sign in</button>
+              <button type="submit" className="login-form-btn">Log In</button>
             </div>
 
             <div className="bottom">
               <span className="txt1">Don’t have an account?</span>
 
               <a href="/signup" className="txt3">
-                Sign up now
+                Sign Up now
               </a>
             </div>
           </form>

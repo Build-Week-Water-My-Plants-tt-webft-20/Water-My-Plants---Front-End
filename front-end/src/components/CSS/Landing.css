@@ -35,6 +35,7 @@ html {
 
 .bannertext {
   width: 70%;
+  min-width: 224px;
   height: auto;
   margin: 0 0 2rem 0;
   padding: 2rem;
@@ -248,14 +249,13 @@ img {
   }
   .banner {
     width: 80%;
-    min-width: 256px;
+    min-width: 228px;
   }
   
   .bannertext {
     width: 80%;
-    /* height: auto; */
+    min-width: 200px;
     padding: 1rem;
-    /* border: 3px solid #57b846; */
     border-radius: 0;
     font-size: 1.5rem;
     margin: 1rem;

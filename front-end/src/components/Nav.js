@@ -5,7 +5,7 @@ const NavigationBar = () => {
   return (
     <div className="header">
       <Link to="/" className="title">
-        WaterMyPlants
+          <div className="w">Water</div><div className="m">My</div><div className="p">Plants</div>
       </Link>
 
       {/* NAV BAR LINKS TO ROUTES */}
@@ -15,7 +15,7 @@ const NavigationBar = () => {
         </Link>
 
         <Link className="nav-link" to="/login">
-          Login
+          Log In
         </Link>
 
         <Link className="nav-link" to="/dashboard">

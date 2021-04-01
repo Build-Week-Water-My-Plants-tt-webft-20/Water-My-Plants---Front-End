@@ -106,18 +106,20 @@ button:hover {
 
 .login-container {
   width: 100%;
-  min-height: 90vh;
+  min-width: 256px;
+  min-height: 60vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  padding: 15px;
+  padding: 8px;
   position: relative;
   background-color: #343b3f;
 }
 
 .wrap-login {
-  width: 500px;
+  width: 100%;
+  max-width: 512px;
   background: #fff;
   border-radius: 20px;
   overflow: hidden;
@@ -152,6 +154,7 @@ button:hover {
 
 .username-input {
   width: 100%;
+  min-width: 224px;
   background-color: #fff;
   border-radius: 27px;
   position: relative;
@@ -161,6 +164,7 @@ button:hover {
 
 .password-input {
   width: 100%;
+  min-width: 224px;
   background-color: #fff;
   border-radius: 27px;
   position: relative;
@@ -243,6 +247,6 @@ button:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 170px;
+  padding-top: 80px;
   padding-bottom: 40px;
 }
