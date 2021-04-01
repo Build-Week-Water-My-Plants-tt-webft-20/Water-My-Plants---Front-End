@@ -6,7 +6,6 @@ import Signup from "./components/Signup"
 import PrivateRoute from './components/PrivateRoute'
 
 import { Route } from "react-router-dom";
-// import PrivateRoute from './components/PrivateRoute'
 import Dashboard from './components/Dashboard'
 
 function App() {
@@ -15,7 +14,7 @@ function App() {
     <div className="App">
       <NavigationBar />
 
-       <PrivateRoute exact path="dashboard" component={Dashboard} />
+       <PrivateRoute exact path="dashboard/:id" component={Dashboard} />
       
       <Route path="/login" component={Login} />
       <Route path="/signup" component={Signup}/>

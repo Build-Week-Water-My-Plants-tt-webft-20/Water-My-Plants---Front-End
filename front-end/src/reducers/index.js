@@ -1,5 +1,5 @@
 import plantData from '../plantData'
-import {ADD_PLANT, EDIT_PLANT, DELETE_PLANT} from '../actions'
+import {GET_PLANTS, ADD_PLANT, EDIT_PLANT, DELETE_PLANT} from '../actions'
 
 const initialState = {
   plantList: plantData,
@@ -11,6 +11,12 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case GET_PLANTS:
+      console.log(action)
+      return ({
+        ...state,
+        plantList: action.payload
+      })
     case (ADD_PLANT):
       return ({
         ...state,
