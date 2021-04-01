@@ -1,6 +1,5 @@
 import axios from 'axios'
 import { AxiosWithAuth } from '../utils/AxiosWithAuth'
-import {useHistory} from 'react-router-dom'
 
 export const SIGNUP = "SIGNUP"
 export const LOGIN = "LOGIN"
@@ -25,16 +24,12 @@ export const signUp = (credentials) => {
 }
 
 export const LogIn = (credentials) => {
-  const {push} = useHistory()
   return (dispatch => {
     axios
     .post("https://water-my-plants-back-end.herokuapp.com/api/auth/login", credentials)
     .then((res) => {
       localStorage.setItem('token', res.data.token)
       console.log('Login in response: ', res.data)
-    })
-    .then(() => {
-      push("/dashboard");
     })
 
     .catch((err) => {
@@ -53,9 +48,10 @@ export const error = (err) => {
 }
 
 export const getPlants = (id) => {
+  console.log(id)
   return (dispatch => {
     AxiosWithAuth()
-      .get(`/plants/user/${id}`)
+      .get(`/plants/user/`)
       .then(res => {
       dispatch({type:GET_PLANTS, payload: res.data})
     })
