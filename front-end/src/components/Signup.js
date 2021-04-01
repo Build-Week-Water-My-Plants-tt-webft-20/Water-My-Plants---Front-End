@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import * as yup from "yup";
 import "../components/CSS/SignUp.css";
 import {useHistory} from 'react-router-dom'
 import { connect } from "react-redux";
+import { signUp } from '../actions'
 
 const emptyCredentials = {
   user_username: "",
@@ -19,7 +19,7 @@ const initialErrors = {
 
 const RegExpress = /^[/+]?[(]?[0-9]{3}[)]?[-\s/.]?[0-9]{3}[-\s/.]?[0-9]{4,6}$/;
 
-const Signup = () => {
+const Signup = ({signUp}) => {
   const [credentials, setCredentials] = useState(emptyCredentials);
   const [buttonDisabled, setButtonDisabled] = useState(true);
   const [errors, setErrors] = useState(initialErrors);
@@ -66,16 +66,8 @@ const Signup = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(credentials)
-    axios
-      .post("https://water-my-plants-back-end.herokuapp.com/api/auth/register", credentials)
-      .then((res) => {
-        console.log(res, "res inside handleSubmit signup form");
-        push('/login')
-      })
-      .catch((err) => {
-        console.log(err, "error in sign up form ");
-      })
+    signUp(credentials)
+    push('/login')
   }
 
 return (
@@ -149,4 +141,4 @@ return (
     );
 }
 
-export default connect(null)(Signup)
+export default connect(null, {signUp})(Signup)
