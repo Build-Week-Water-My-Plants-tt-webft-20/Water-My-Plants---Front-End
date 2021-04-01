@@ -57,9 +57,6 @@ const Signup = () => {
 
   const inputChange = (e) => {
     let value = e.target.value
-    if (e.target.name === "user_phone_number") {
-      value = parseInt(value)
-    }
     setCredentials({
       ...credentials,
       [e.target.name]: value,

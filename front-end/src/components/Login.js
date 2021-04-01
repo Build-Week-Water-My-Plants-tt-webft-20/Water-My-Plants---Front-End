@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import {useHistory} from 'react-router-dom'
+import {useHistory, Link} from 'react-router-dom'
 import "../components/CSS/Login.css";
 
 const emptyCredentials = {
@@ -85,9 +85,9 @@ export default function Login(props) {
             <div className="bottom">
               <span className="txt1">Don’t have an account?</span>
 
-              <a href="/signup" className="txt3">
+              <Link to="/signup" className="txt3">
                 Sign Up now
-              </a>
+              </Link>
             </div>
           </form>
         </div>
