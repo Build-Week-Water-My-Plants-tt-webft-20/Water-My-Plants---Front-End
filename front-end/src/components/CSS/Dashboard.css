@@ -12,6 +12,7 @@
 }
 
 .main-container {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,6 +32,7 @@
 }
 
 .plant-container {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -173,3 +175,10 @@ form input {
   margin: 1vw;
   width: 10vw;
 }
+
+@media (max-width: 960px) {
+  .plant-card {
+    margin: 2vw;
+  }
+}
+
