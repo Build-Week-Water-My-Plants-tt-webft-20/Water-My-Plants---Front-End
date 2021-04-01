@@ -48,9 +48,10 @@ export const error = (err) => {
 }
 
 export const getPlants = (id) => {
+  console.log(id)
   return (dispatch => {
     AxiosWithAuth()
-      .get(`/plants/user/${id}`)
+      .get(`/plants/user/`)
       .then(res => {
       dispatch({type:GET_PLANTS, payload: res.data})
     })

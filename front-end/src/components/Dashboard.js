@@ -6,12 +6,12 @@ import {getPlants} from '../actions'
 import "../components/CSS/Dashboard.css";
 
 const Dashboard = (props) => {
-  const {plantList, getPlants} = props
+  const {plantList, getPlants, user_id} = props
   const [displayForm, setDisplayForm] = useState(false)
 
   useEffect(() => {
-    getPlants()
-  }, [getPlants])
+    // getPlants(user_id)
+  }, [])
 
   const openForm = () => {
     setDisplayForm(true);
@@ -62,7 +62,8 @@ const Dashboard = (props) => {
 
 const mapStateToProps = state => {
   return ({
-    plantList: state.plantList
+    plantList: state.plantList,
+    user_id: state.user_id
   })
 }
 
