@@ -96,7 +96,7 @@ return (
                 className="input"
                 type="text"
                 name="user_username"
-                placeholder="Enter Your username"
+                placeholder="Create a Username"
                 value={credentials.user_username}
                 id="username"
                 onChange={inputChange}
@@ -113,7 +113,7 @@ return (
                 className="input"
                 type="password"
                 name="user_password"
-                placeholder="Enter Your password"
+                placeholder="Create a Password"
                 value={credentials.user_password}
                 onChange={inputChange}
   
@@ -129,7 +129,7 @@ return (
                 className="input"
                 type="text"
                 name="user_phone_number"
-                placeholder="Enter Your Phone Number"
+                placeholder="Mobile phone number"
                 value={credentials.user_phone_number}
                 onChange={inputChange}
                   />

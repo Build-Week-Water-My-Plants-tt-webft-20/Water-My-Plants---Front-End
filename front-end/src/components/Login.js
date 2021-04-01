@@ -8,9 +8,12 @@ const emptyCredentials = {
   user_password: "",
 };
 
+const initialError = ""
+
 export default function Login(props) {
   const [credentials, setCredentials] = useState(emptyCredentials);
-  const history = useHistory();
+  const [error, setError] = useState(initialError)
+  const { push } = useHistory();
 
   const onChange = (e) => {
     setCredentials({
@@ -27,11 +30,17 @@ export default function Login(props) {
       .then((res) => {
         console.log(res)
         localStorage.setItem('token', res.data.token)
+        console.log(res.data)
       })
       .then(() => {
-        props.history.push("/dashboard");
+        push("/dashboard");
       })
-      .catch((err) => console.log(err));
+
+      .catch((err) => {
+        console.log(err.response.data.message)
+        setError(err.response.data.message)
+        push("/login");
+      });
 
   };
 
@@ -70,6 +79,11 @@ export default function Login(props) {
             <div className="btn-container">
               <button type="submit" className="login-form-btn">Log In</button>
             </div>
+
+            <div className="errors">
+              <p className="error">{ error }</p>
+            </div>
+
 
             <div className="bottom">
               <span className="txt1">Don’t have an account?</span>
