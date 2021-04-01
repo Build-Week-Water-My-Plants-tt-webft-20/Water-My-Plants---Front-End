@@ -1,9 +1,11 @@
 import axios from 'axios'
-import {AxiosWithAuth} from '../utils/AxiosWithAuth'
+import { AxiosWithAuth } from '../utils/AxiosWithAuth'
+import {useHistory} from 'react-router-dom'
 
 export const SIGNUP = "SIGNUP"
 export const LOGIN = "LOGIN"
 export const LOGOUT = "LOGOUT"
+export const ERROR = "ERROR"
 export const GET_PLANTS = "GET_PLANTS"
 export const ADD_PLANT = "ADD_PLANT"
 export const EDIT_PLANT = "EDIT_PLANT"
@@ -22,29 +24,32 @@ export const signUp = (credentials) => {
   })
 }
 
-export const login = (credentials) => {
+export const LogIn = (credentials) => {
+  const {push} = useHistory()
   return (dispatch => {
     axios
     .post("https://water-my-plants-back-end.herokuapp.com/api/auth/login", credentials)
     .then((res) => {
-      console.log(res)
       localStorage.setItem('token', res.data.token)
-      console.log(res.data)
+      console.log('Login in response: ', res.data)
     })
     .then(() => {
-      // push("/dashboard");
+      push("/dashboard");
     })
 
     .catch((err) => {
       console.log(err.response.data.message)
-      // setError(err.response.data.message)
-      // push("/login");
+      dispatch(error(err))
     });
   })
 }
 
 export const logOut = () => {
   return ({type:LOGOUT})
+}
+
+export const error = (err) => {
+  return({type:ERROR, payload:err})
 }
 
 export const getPlants = (id) => {

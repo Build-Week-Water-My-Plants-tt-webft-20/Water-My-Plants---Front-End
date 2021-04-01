@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import axios from "axios";
-import {useHistory} from 'react-router-dom'
+// import {useHistory} from 'react-router-dom'
 import { connect } from "react-redux";
-import { login } from '../actions'
+import { LogIn } from '../actions'
 import "../components/CSS/Login.css";
 
 const emptyCredentials = {
@@ -10,12 +9,9 @@ const emptyCredentials = {
   user_password: "",
 };
 
-const initialError = ""
-
-const Login = (props) => {
+const Login = ({errors}) => {
   const [credentials, setCredentials] = useState(emptyCredentials);
-  const [error, setError] = useState(initialError)
-  const { push } = useHistory();
+  // const { push } = useHistory();
 
   const onChange = (e) => {
     setCredentials({
@@ -26,7 +22,7 @@ const Login = (props) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    login(credentials)
+    LogIn(credentials)
   };
 
   return (
@@ -66,7 +62,7 @@ const Login = (props) => {
             </div>
 
             <div className="errors">
-              <p className="error">{ error }</p>
+              <p className="error">{ errors }</p>
             </div>
 
 
@@ -84,4 +80,10 @@ const Login = (props) => {
   );
 }
 
-export default connect(null, {login})(Login)
+const mapStateToProps = state => {
+  return ({
+    errors: state.errors
+  })
+}
+
+export default connect(mapStateToProps, {LogIn})(Login)

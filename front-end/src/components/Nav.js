@@ -27,7 +27,7 @@ const NavigationBar = () => {
           Dashboard
         </Link>
 
-        <Link className="nav-link" to="/login" onClick={logOut}>
+        <Link className="nav-link" to="/" onClick={logOut}>
           Logout
         </Link>
       </nav>
