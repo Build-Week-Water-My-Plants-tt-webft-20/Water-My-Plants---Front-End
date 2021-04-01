@@ -9,9 +9,12 @@ const Dashboard = (props) => {
   const {plantList, getPlants, user_id} = props
   const [displayForm, setDisplayForm] = useState(false)
 
+
   useEffect(() => {
-    // getPlants(user_id)
-  }, [])
+    if (user_id) {
+      getPlants(user_id)
+    }
+  }, [getPlants, user_id])
 
   const openForm = () => {
     setDisplayForm(true);

@@ -1,4 +1,4 @@
-import {SIGNUP, LOGIN, LOGOUT, GET_PLANTS, ADD_PLANT, EDIT_PLANT, DELETE_PLANT} from '../actions'
+import {SIGNUP, SET_USER, LOGOUT, GET_PLANTS, ADD_PLANT, EDIT_PLANT, DELETE_PLANT} from '../actions'
 
 const initialState = {
   plantList: [],
@@ -11,7 +11,7 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case SIGNUP:
       return state
-    case LOGIN:
+    case SET_USER:
       return ({
         ...state,
         token: action.payload.token,
