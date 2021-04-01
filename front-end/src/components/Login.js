@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import {useHistory} from 'react-router-dom'
+import { connect } from "react-redux";
+import { login } from '../actions'
 import "../components/CSS/Login.css";
 
 const emptyCredentials = {
@@ -10,7 +12,7 @@ const emptyCredentials = {
 
 const initialError = ""
 
-export default function Login(props) {
+const Login = (props) => {
   const [credentials, setCredentials] = useState(emptyCredentials);
   const [error, setError] = useState(initialError)
   const { push } = useHistory();
@@ -22,33 +24,16 @@ export default function Login(props) {
     });
   };
 
-  const login = (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
-
-    axios
-      .post("https://water-my-plants-back-end.herokuapp.com/api/auth/login", credentials)
-      .then((res) => {
-        console.log(res)
-        localStorage.setItem('token', res.data.token)
-        console.log(res.data)
-      })
-      .then(() => {
-        push("/dashboard");
-      })
-
-      .catch((err) => {
-        console.log(err.response.data.message)
-        setError(err.response.data.message)
-        push("/login");
-      });
-
+    login(credentials)
   };
 
   return (
     <div className="login">
       <div className="login-container">
         <div className="wrap-login">
-          <form className="login-form" onSubmit={login}>
+          <form className="login-form" onSubmit={onSubmit}>
             <span className="login-form-title">Log In:</span>
 
             <div className="username-input">
@@ -98,3 +83,5 @@ export default function Login(props) {
     </div>
   );
 }
+
+export default connect(null, {login})(Login)
