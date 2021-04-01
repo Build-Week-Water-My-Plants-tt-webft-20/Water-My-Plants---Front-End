@@ -1,16 +1,26 @@
 import plantData from '../plantData'
-import {GET_PLANTS, ADD_PLANT, EDIT_PLANT, DELETE_PLANT} from '../actions'
+import {SIGNUP, LOGIN, LOGOUT, GET_PLANTS, ADD_PLANT, EDIT_PLANT, DELETE_PLANT} from '../actions'
 
 const initialState = {
   plantList: plantData,
   token: null,
-  userId: "",
-  isLoggedIn: false,
-  isLoading: false,
+  user_id: "",
+  user_username: ""
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case SIGNUP:
+      return state
+    case LOGIN:
+      return ({
+        ...state,
+        token: action.payload.token,
+        user_id: action.payload.user_id,
+        user_username: action.payload.user_username
+      })
+    case LOGOUT:
+      return (initialState)
     case GET_PLANTS:
       console.log(action)
       return ({
