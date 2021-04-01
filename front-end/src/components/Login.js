@@ -69,9 +69,9 @@ const Login = ({errors}) => {
             <div className="bottom">
               <span className="txt1">Don’t have an account?</span>
 
-              <a href="/signup" className="txt3">
+              <Link to="/signup" className="txt3">
                 Sign Up now
-              </a>
+              </Link>
             </div>
           </form>
         </div>
