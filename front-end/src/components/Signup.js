@@ -26,9 +26,9 @@ const Signup = () => {
   const { push } = useHistory()
 
   const schema = yup.object().shape({
-    user_username: yup.string().required("Name is a required field."),
+    user_username: yup.string().required("Name is a required field!"),
     user_password: yup.string().required("Password is required!"),
-    user_phone_number: yup.string().matches(RegExpress, 'Phone number is not valid'),
+    user_phone_number: yup.string().matches(RegExpress, 'Phone number is not valid!'),
   });
 
   useEffect(() => {
@@ -141,7 +141,6 @@ return (
 
             <div className="btn-container">    
             <button className="signup-form-btn" type="submit" disabled={buttonDisabled}>Sign Up</button>
-            {/* <pre>{JSON.stringify(users, null, 2)}</pre> */}
             </div>
 
             </div>
