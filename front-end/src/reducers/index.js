@@ -12,6 +12,7 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_PLANTS:
+      console.log(action)
       return ({
         ...state,
         plantList: action.payload

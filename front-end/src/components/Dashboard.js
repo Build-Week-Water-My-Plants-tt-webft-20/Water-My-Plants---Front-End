@@ -1,12 +1,17 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import PlantCard from './PlantCard'
 import PlantForm from './PlantForm'
+import {getPlants} from '../actions'
 import "../components/CSS/Dashboard.css";
 
 const Dashboard = (props) => {
-  const {plantList} = props
+  const {plantList, getPlants} = props
   const [displayForm, setDisplayForm] = useState(false)
+
+  useEffect(() => {
+    getPlants()
+  }, [])
 
   const openForm = () => {
     setDisplayForm(true);
@@ -61,4 +66,4 @@ const mapStateToProps = state => {
   })
 }
 
-export default connect(mapStateToProps, null)(Dashboard)
+export default connect(mapStateToProps, {getPlants})(Dashboard)
