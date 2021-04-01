@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { connect } from 'react-redux'
+import {setUser} from '../actions'
 import {useHistory} from 'react-router-dom'
 import "../components/CSS/Login.css";
 
@@ -8,7 +10,8 @@ const emptyCredentials = {
   user_password: "",
 };
 const initialError = ""
-export default function Login(props) {
+
+const  Login = ({setUser}) => {
   const [credentials, setCredentials] = useState(emptyCredentials);
   const [error, setError] = useState(initialError)
   const { push } = useHistory();
@@ -23,9 +26,11 @@ export default function Login(props) {
     axios
       .post("https://water-my-plants-back-end.herokuapp.com/api/auth/login", credentials)
       .then((res) => {
-        console.log(res)
         localStorage.setItem('token', res.data.token)
-        console.log(res.data)
+        setUser(res.data)
+        
+        // Console log to see the shape of the returned data
+        // console.log(res.data)
       })
       .then(() => {
         push("/dashboard");
@@ -85,3 +90,4 @@ export default function Login(props) {
     </div>
   );
 }
+export default connect(null, {setUser})(Login)
