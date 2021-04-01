@@ -155,7 +155,8 @@ form input {
   border: 10px solid #57b846;
   border-radius: 5px;
   width: 20vw;
-  height: 60vh;
+  min-width: 240px;
+  height: auto;
   margin: 40px;
   background: #fff;
 }
@@ -174,10 +175,15 @@ form input {
   padding: 10px;
   margin: 1vw;
   width: 10vw;
+  min-width: 96px;
 }
 
 @media (max-width: 960px) {
   .plant-card {
+    margin: 2vw;
+  }
+
+  .update-form {
     margin: 2vw;
   }
 }
