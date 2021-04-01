@@ -11,7 +11,7 @@ const Dashboard = (props) => {
 
   useEffect(() => {
     getPlants()
-  }, [])
+  }, [getPlants])
 
   const openForm = () => {
     setDisplayForm(true);

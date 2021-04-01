@@ -9,12 +9,11 @@ import { Route } from "react-router-dom";
 import Dashboard from './components/Dashboard'
 
 function App() {
-  localStorage.clear();
   return (
     <div className="App">
       <NavigationBar />
 
-       <PrivateRoute exact path="dashboard/:id" component={Dashboard} />
+       <PrivateRoute exact path="dashboard" component={Dashboard} />
       
       <Route exact path="/login" component={Login} />
       <Route exact path="/signup" component={Signup}/>

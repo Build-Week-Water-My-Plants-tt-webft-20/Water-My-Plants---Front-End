@@ -1,38 +1,50 @@
 import React, { useState } from "react";
-// import {useHistory} from 'react-router-dom'
-import { connect } from "react-redux";
-import { LogIn } from '../actions'
+import axios from "axios";
+import {useHistory} from 'react-router-dom'
 import "../components/CSS/Login.css";
-import {Link} from 'react-router-dom'
 
 const emptyCredentials = {
   user_username: "",
   user_password: "",
 };
-
-const Login = ({errors}) => {
+const initialError = ""
+export default function Login(props) {
   const [credentials, setCredentials] = useState(emptyCredentials);
-  // const { push } = useHistory();
-
+  const [error, setError] = useState(initialError)
+  const { push } = useHistory();
   const onChange = (e) => {
     setCredentials({
       ...credentials,
       [e.target.name]: e.target.value,
     });
   };
-
-  const onSubmit = (e) => {
+  const login = (e) => {
     e.preventDefault();
-    LogIn(credentials)
+    axios
+      .post("https://water-my-plants-back-end.herokuapp.com/api/auth/login", credentials)
+      .then((res) => {
+        console.log(res)
+        localStorage.setItem('token', res.data.token)
+        console.log(res.data)
+      })
+      .then(() => {
+        push("/dashboard");
+      })
+
+      .catch((err) => {
+        console.log(err.response.data.message)
+        setError(err.response.data.message)
+        push("/login");
+      });
+
   };
 
-  return (
+  return (  
     <div className="login">
       <div className="login-container">
         <div className="wrap-login">
-          <form className="login-form" onSubmit={onSubmit}>
+          <form className="login-form" onSubmit={login}>
             <span className="login-form-title">Log In:</span>
-
             <div className="username-input">
               <input
                 className="input"
@@ -44,7 +56,6 @@ const Login = ({errors}) => {
               />
               <span className="spaninput"></span>
             </div>
-
             <div className="password-input">
               <input
                 className="input"
@@ -56,23 +67,17 @@ const Login = ({errors}) => {
               />
               <br></br>
             </div>
-
-
             <div className="btn-container">
               <button type="submit" className="login-form-btn">Log In</button>
             </div>
-
             <div className="errors">
-              <p className="error">{ errors }</p>
+              <p className="error">{ error }</p>
             </div>
-
-
             <div className="bottom">
               <span className="txt1">Don’t have an account?</span>
-
-              <Link to="/signup" className="txt3">
+              <a href="/signup" className="txt3">
                 Sign Up now
-              </Link>
+              </a>
             </div>
           </form>
         </div>
@@ -80,11 +85,3 @@ const Login = ({errors}) => {
     </div>
   );
 }
-
-const mapStateToProps = state => {
-  return ({
-    errors: state.errors
-  })
-}
-
-export default connect(mapStateToProps, {LogIn})(Login)
