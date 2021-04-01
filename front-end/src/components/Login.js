@@ -25,6 +25,7 @@ export default function Login(props) {
     axios
       .post("https://water-my-plants-back-end.herokuapp.com/api/auth/login", credentials)
       .then((res) => {
+        console.log(res)
         localStorage.setItem('token', res.data.token)
       })
       .then(() => {
@@ -32,7 +33,6 @@ export default function Login(props) {
       })
       .catch((err) => console.log(err));
 
-    history.push('/dashboard')
   };
 
   return (

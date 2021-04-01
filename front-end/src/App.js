@@ -14,7 +14,7 @@ function App() {
     <div className="App">
       <NavigationBar />
 
-       <PrivateRoute exact path="dashboard" component={Dashboard} />
+       <PrivateRoute exact path="dashboard/:id" component={Dashboard} />
       
       <Route path="/login" component={Login} />
       <Route path="/signup" component={Signup}/>
