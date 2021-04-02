@@ -9,6 +9,7 @@ import { Route, Switch, Redirect} from "react-router-dom";
 import Dashboard from './components/Dashboard'
 
 function App() {
+  localStorage.clear()
   return (
     <div className="App">
       <NavigationBar />
@@ -17,12 +18,7 @@ function App() {
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={Signup}/>
         {/* <PrivateRoute exact path="/dashboard" component=  {Dashboard} /> */}
-        <Route exact path="/dashboard">
-          {!localStorage.getItem("token")
-            ? <Redirect to="/login" />
-            : <Dashboard /> 
-          }
-        </Route>
+        <Route exact path="/dashboard" component={Dashboard}/>
       </Switch>
     </div>
   );

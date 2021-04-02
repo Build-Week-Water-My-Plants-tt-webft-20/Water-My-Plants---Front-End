@@ -6,7 +6,7 @@ import {getPlants} from '../actions'
 import "../components/CSS/Dashboard.css";
 
 const Dashboard = (props) => {
-  const {plantList, getPlants, user_id} = props
+  const { plantList, getPlants, user_id } = props
   const [displayForm, setDisplayForm] = useState(false)
 
 
@@ -25,40 +25,45 @@ const Dashboard = (props) => {
   };
 
   return (
-    <div className="dashboard">
-      <h1>My Plants </h1>
-    
-      {!displayForm && (
-        <div className="form-button" onClick={openForm}>
-          Add Plant
-        </div>
-      )}
+    <div>
+      {!localStorage.getItem("token")
+        ? <h1 className="welcome">Please Log In to see your Dashboard</h1>
+        : <div className="dashboard">
 
-      {displayForm && (
-        <div className="form-button" onClick={closeForm}>
-          Close
-        </div>
-      )}
+          <h1>My Plants </h1>
+      
+          {!displayForm && (
+            <div className="form-button" onClick={openForm}>
+              Add Plant
+            </div>
+          )}
 
-      {displayForm && (
-        <PlantForm
-          setDisplayForm={setDisplayForm}
-          plantList={plantList}
-        />
-      )}
-      {/* plant card */}
-      <div className="main-container">
-        <div className="plant-container">
-          {plantList.map((plant) => {
-            return (
-              <PlantCard
-                key={plant.id}
-                plantDetails={plant}
-              />
-            );
-          })}
-        </div>
-      </div>
+          {displayForm && (
+            <div className="form-button" onClick={closeForm}>
+              Close
+            </div>
+          )}
+
+          {displayForm && (
+            <PlantForm
+              setDisplayForm={setDisplayForm}
+              plantList={plantList}
+            />
+          )}
+          {/* plant card */}
+          <div className="main-container">
+            <div className="plant-container">
+              {plantList.map((plant) => {
+                return (
+                  <PlantCard
+                    key={plant.id}
+                    plantDetails={plant}
+                  />
+                );
+              })}
+            </div>
+          </div>
+        </div>}
     </div>
   );
 }
