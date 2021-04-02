@@ -36,7 +36,7 @@ export const getPlants = (id) => {
     AxiosWithAuth()
       .get(`/plants/user/${id}`)
       .then(res => {
-      // dispatch({type:GET_PLANTS, payload: res.data})
+      dispatch({type:GET_PLANTS, payload: res.data})
     })
   })
 }
