@@ -33,7 +33,7 @@ const PlantCard = (props) => {
               Edit
             </div>
 
-          <div className="button" onClick={() => deletePlant(id)}>
+          <div className="plant-button" onClick={() => deletePlant(id)}>
             Delete
           </div>
         </div>
