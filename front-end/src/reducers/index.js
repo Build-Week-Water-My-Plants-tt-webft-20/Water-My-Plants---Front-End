@@ -1,7 +1,9 @@
-import {SIGNUP, SET_USER, LOGOUT, GET_PLANTS, ADD_PLANT, EDIT_PLANT, DELETE_PLANT} from '../actions'
+import plantData from '../plantData'
+
+import { SIGNUP, SET_USER, LOGOUT, GET_PLANTS, ADD_PLANT, EDIT_PLANT, DELETE_PLANT } from '../actions'
 
 const initialState = {
-  plantList: [],
+  plantList: plantData,
   token: null,
   user_id: "",
   user_username: ""
