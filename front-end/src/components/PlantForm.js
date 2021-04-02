@@ -14,13 +14,12 @@ const initialForm = {
 };
 
 const PlantForm = (props) => {
-  const {addPlant, setDisplayForm, plantList} = props
+  const {addPlant, setDisplayForm} = props
   const [form, setForm] = useState(initialForm)
 
   const handleChange = (e) => {
       setForm({
         ...form,
-        id: plantList.length.toString(),
           [e.target.name]: e.target.value
       })
   }
@@ -83,11 +82,5 @@ const PlantForm = (props) => {
   );
 }
 
-const mapStateToProps = state => {
-  return ({
-    plantList: state.plantList
-  })
-}
-
-export default connect(mapStateToProps, {addPlant})(PlantForm)
+export default connect(null, {addPlant})(PlantForm)
 

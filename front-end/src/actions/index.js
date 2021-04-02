@@ -35,13 +35,21 @@ export const getPlants = (id) => {
     AxiosWithAuth()
       .get(`/plants/user/${id}`)
       .then(res => {
-      dispatch({type:GET_PLANTS, payload: res.data})
+      // dispatch({type:GET_PLANTS, payload: res.data})
     })
   })
 }
 
 export const addPlant = (form) => {
-  return({type:ADD_PLANT, payload: form})
+  return (dispatch => {
+    AxiosWithAuth()
+      .post('/plants', form)
+      .then(res => {
+      console.log(res)
+      })
+      .catch(err => console.log(err))
+    // dispatch({type:ADD_PLANT, payload: form})
+  })
 }
 
 export const editPlant = (form) => {
