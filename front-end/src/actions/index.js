@@ -23,6 +23,7 @@ export const signUp = (credentials) => {
 }
 
 export const logOut = () => {
+  localStorage.clear()
   return ({type:LOGOUT})
 }
 

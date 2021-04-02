@@ -1,10 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { connect } from 'react-redux'
+import {logOut} from '../actions'
+import { Link, useHistory } from "react-router-dom";
 
-const NavigationBar = () => {
+const NavigationBar = ({ logOut }) => {
+  const {push} = useHistory()
 
-  const logOut = () => {
-    localStorage.clear()
+  const handleClick = () => {
+    logOut()
+    push('/login')
   }
   
   return (
@@ -27,7 +31,7 @@ const NavigationBar = () => {
           Dashboard
         </Link>
 
-        <Link className="nav-link" to="/" onClick={logOut}>
+        <Link className="nav-link" to="/" onClick={handleClick}>
           Logout
         </Link>
       </nav>
@@ -35,4 +39,4 @@ const NavigationBar = () => {
   );
 };
 
-export default NavigationBar;
+export default connect(null, { logOut })(NavigationBar)
