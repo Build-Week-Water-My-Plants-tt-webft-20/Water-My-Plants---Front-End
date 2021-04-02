@@ -21,21 +21,17 @@ const  Login = ({setUser, token, user_username}) => {
       [e.target.name]: e.target.value,
     });
   };
+
   const login = (e) => {
     e.preventDefault();
     axios
       .post("https://water-my-plants-back-end.herokuapp.com/api/auth/login", credentials)
       .then((res) => {
-        localStorage.setItem('token', res.data.token)
+        localStorage.setItem("token", res.data.token)
+        console.log(localStorage.getItem("token"))
         setUser(res.data)
-        
-        // Console log to see the shape of the returned data
-        // console.log(res.data)
-      })
-      .then(() => {
         push("/dashboard");
       })
-
       .catch((err) => {
         console.log(err.response.data.message)
         setError(err.response.data.message)
@@ -46,7 +42,7 @@ const  Login = ({setUser, token, user_username}) => {
 
   return (
     <div className="login">
-      {token
+      {localStorage.getItem("token")
         ? <h1 className="welcome">Welcome {user_username} !</h1>
         : <div className="login-container">
         <div className="wrap-login">
