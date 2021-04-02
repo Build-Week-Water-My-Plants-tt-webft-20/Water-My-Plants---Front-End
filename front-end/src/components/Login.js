@@ -11,7 +11,7 @@ const emptyCredentials = {
 };
 const initialError = ""
 
-const  Login = ({setUser}) => {
+const  Login = ({setUser, token, user_username}) => {
   const [credentials, setCredentials] = useState(emptyCredentials);
   const [error, setError] = useState(initialError)
   const { push } = useHistory();
@@ -44,9 +44,11 @@ const  Login = ({setUser}) => {
 
   };
 
-  return (  
+  return (
     <div className="login">
-      <div className="login-container">
+      {token
+        ? <h1 className="welcome">Welcome {user_username} !</h1>
+        : <div className="login-container">
         <div className="wrap-login">
           <form className="login-form" onSubmit={login}>
             <span className="login-form-title">Log In:</span>
@@ -86,8 +88,15 @@ const  Login = ({setUser}) => {
             </div>
           </form>
         </div>
-      </div>
+      </div>}
     </div>
   );
 }
-export default connect(null, {setUser})(Login)
+
+const mapStateToProps = state => {
+  return ({
+    token: state.token,
+    user_username: state.user_username
+  })
+}
+export default connect(mapStateToProps, {setUser})(Login)
