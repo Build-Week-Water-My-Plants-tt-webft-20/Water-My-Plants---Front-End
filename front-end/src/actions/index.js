@@ -24,7 +24,6 @@ export const signUp = (credentials) => {
   })
 }
 
-
 //logOut action clears local storage and clears the token in the app state
 export const logOut = () => {
   localStorage.clear()
@@ -42,7 +41,9 @@ export const getPlants = (id) => {
     AxiosWithAuth()
       .get(`/plants/user/${id}`)
       .then(res => {
-      dispatch({type:GET_PLANTS, payload: res.data})
+
+      // Removed get request because data was not being returned from the back end
+      // dispatch({type:GET_PLANTS, payload: res.data})
     })
   })
 }
